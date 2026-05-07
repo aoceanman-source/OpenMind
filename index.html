@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenMind｜自動化 × LINE 客服 × 官網，幫你準時下班陪家人</title>
+  <meta name="description" content="幫電商與服務業老闆用自動化工具消除重複性工作，讓你準時下班陪家人。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=DM+Sans:wght@400;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">Open<span>Mind</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">服務項目</a>
+        <a href="#how-it-works">合作流程</a>
+        <a href="#results">成果案例</a>
+        <a href="#promises">服務承諾</a>
+        <a href="#contact" class="btn-nav">免費聊聊</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="開啟選單">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">自動化工程師 × 中小企業夥伴</p>
+        <h1>把你每天做三遍的事，<br />交給我做一次，<br /><span class="accent">讓系統永遠幫你做。</span></h1>
+        <p class="hero-desc">幫電商與服務業老闆消除重複性工作——查價、回 LINE、整理報表——讓你準時下班陪家人。</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">跟我說說你的困擾</a>
+          <a href="#services" class="btn-ghost">看看我能幫什麼</a>
+        </div>
+        <div class="hero-badges">
+          <span>✅ 30 天無限修改</span>
+          <span>✅ 附操作說明文件</span>
+          <span>✅ 低於市場均價 30–50%</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-card card-top">
+          <span class="visual-icon">🤖</span>
+          <div>
+            <p class="vc-label">LINE 機器人</p>
+            <p class="vc-val">24 hr 自動回覆</p>
+          </div>
+        </div>
+        <div class="visual-card card-mid">
+          <span class="visual-icon">📊</span>
+          <div>
+            <p class="vc-label">今日查價報告</p>
+            <p class="vc-val accent-text">已自動生成 ✓</p>
+          </div>
+        </div>
+        <div class="visual-card card-bot">
+          <span class="visual-icon">⏰</span>
+          <div>
+            <p class="vc-label">你現在可以</p>
+            <p class="vc-val">準時下班了</p>
+          </div>
+        </div>
+        <div class="visual-bg-circle"></div>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#F7F5F2"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── PAIN POINTS ── -->
+  <section class="pain" id="pain">
+    <div class="container">
+      <p class="section-eyebrow">你是不是也這樣？</p>
+      <h2 class="section-title">老闆最浪費時間的事，<br />往往是最無聊的重複工作</h2>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <span class="pain-icon">😩</span>
+          <h3>每天手動巡價</h3>
+          <p>追蹤 5–10 個競品，花 1–2 小時只為調一次售價，還不一定調對時間點。</p>
+        </div>
+        <div class="pain-card">
+          <span class="pain-icon">📱</span>
+          <h3>半夜還在回 LINE</h3>
+          <p>「請問有空位嗎？」「今天還有貨嗎？」一樣的問題回了幾百次，睡眠品質越來越差。</p>
+        </div>
+        <div class="pain-card">
+          <span class="pain-icon">📋</span>
+          <h3>月底對帳對到崩潰</h3>
+          <p>庫存、訂單、對帳靠人工 Excel，每個月底都要熬夜，一個數字錯了全部重來。</p>
+        </div>
+        <div class="pain-card">
+          <span class="pain-icon">🔍</span>
+          <h3>客戶 Google 找不到你</h3>
+          <p>沒有像樣的網站，口碑都靠熟客，新客戶不知道你的存在，生意就這樣卡住了。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="section-eyebrow">服務項目</p>
+      <h2 class="section-title">我能幫你做的四件事</h2>
+      <p class="section-sub">每一項都對準一個你每天在浪費的時間</p>
+
+      <div class="service-list">
+
+        <div class="service-item">
+          <div class="service-icon-wrap">
+            <span class="service-icon">🔍</span>
+          </div>
+          <div class="service-body">
+            <h3>電商競品查價自動化</h3>
+            <p class="service-tagline">再也不用每天手動巡價</p>
+            <p>設定好競品清單，系統定時爬取最新售價並自動生成對比報表，你早上起床就看到報告，一鍵決策調價。</p>
+            <ul class="service-features">
+              <li>支援蝦皮、Momo、PChome 等主流平台</li>
+              <li>每日 / 每週自動寄送報表到 Email</li>
+              <li>異常價格即時 LINE 通知</li>
+            </ul>
+            <div class="service-meta">
+              <span class="tag">電商老闆</span>
+              <span class="tag">省時 1–2 hr/天</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon-wrap">
+            <span class="service-icon">🤖</span>
+          </div>
+          <div class="service-body">
+            <h3>LINE 智能客服機器人</h3>
+            <p class="service-tagline">半夜的問題讓機器人幫你回</p>
+            <p>把你最常被問的問題整理成知識庫，機器人 24 小時自動回覆，複雜問題再轉交真人，你不用再守著手機。</p>
+            <ul class="service-features">
+              <li>FAQ 自動回覆，訓練在你的業務知識上</li>
+              <li>預約、查詢、報價一站搞定</li>
+              <li>超出範圍自動轉真人，不讓客戶失望</li>
+            </ul>
+            <div class="service-meta">
+              <span class="tag">餐飲 / 美容 / 診所</span>
+              <span class="tag">24hr 不關機</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon-wrap">
+            <span class="service-icon">🌐</span>
+          </div>
+          <div class="service-body">
+            <h3>形象官網設計</h3>
+            <p class="service-tagline">讓客戶 Google 找到你、信任你</p>
+            <p>不只是「有個網站」——而是讓訪客三秒內懂你是誰、信任你，然後主動聯絡你。響應式設計，手機、平板、電腦都完美呈現。</p>
+            <ul class="service-features">
+              <li>RWD 響應式，SEO 基礎優化</li>
+              <li>針對轉換率設計，不只是好看</li>
+              <li>附 Google Analytics 數據追蹤</li>
+            </ul>
+            <div class="service-meta">
+              <span class="tag">所有行業</span>
+              <span class="tag">建立專業形象</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon-wrap">
+            <span class="service-icon">⚙️</span>
+          </div>
+          <div class="service-body">
+            <h3>客製化自動化工作流</h3>
+            <p class="service-tagline">把重複的事交給系統，你去做重要的事</p>
+            <p>訂單同步、庫存更新、報表整合、對帳自動化——你說出最耗時的流程，我來把它變成一個按鈕，或是完全不需要按。</p>
+            <ul class="service-features">
+              <li>串接 Google Sheets、Line Notify、各大電商 API</li>
+              <li>流程圖討論 → 明確報價 → 無驚喜</li>
+              <li>上線後提供完整操作說明文件</li>
+            </ul>
+            <div class="service-meta">
+              <span class="tag">電商 / 零售</span>
+              <span class="tag">降低人力成本</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="process" id="how-it-works">
+    <div class="container">
+      <p class="section-eyebrow">合作流程</p>
+      <h2 class="section-title">從聊需求到交付，清楚不意外</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>免費聊聊需求</h3>
+          <p>說說你每天最浪費時間的事，不需要懂技術，我用人話聽懂你的問題。</p>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>明確報價</h3>
+          <p>預計天數 + 固定費用，包含一個月修改。沒有模糊地帶，沒有後來追加。</p>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>開發 + 持續確認</h3>
+          <p>過程中有問題就直接說，不讓你到最後才發現跑掉了。</p>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>交付 + 說明文件</h3>
+          <p>成品加上中文操作說明（截圖或影片），你不需要懂技術也能自己維護。</p>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-num">05</div>
+          <h3>30 天無限修改</h3>
+          <p>覺得不對、想調方向，直接說。整整一個月，改到你滿意為止，不另收費。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESULTS ── -->
+  <section class="results" id="results">
+    <div class="container">
+      <p class="section-eyebrow">成果數字</p>
+      <h2 class="section-title">用數字說話，不說空話</h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <p class="result-num"><span class="counter" data-target="2">0</span> hr</p>
+          <p class="result-label">每天節省的手動查價時間</p>
+          <p class="result-desc">電商老闆從每天手動巡 10 個競品，變成早上起床自動收報告</p>
+        </div>
+        <div class="result-card">
+          <p class="result-num"><span class="counter" data-target="24">0</span> hr</p>
+          <p class="result-label">LINE 客服全天候上線</p>
+          <p class="result-desc">服務業老闆不再半夜盯手機，讓機器人幫你回「還有位子嗎？」</p>
+        </div>
+        <div class="result-card">
+          <p class="result-num"><span class="counter" data-target="30">0</span> 天</p>
+          <p class="result-label">無限修改保證期</p>
+          <p class="result-desc">業界少見的承諾，讓你付了錢絕對拿到真正想要的成果</p>
+        </div>
+        <div class="result-card">
+          <p class="result-num">50<span>%</span><span class="result-down">↓</span></p>
+          <p class="result-label">低於市場均價</p>
+          <p class="result-desc">初期接案定價，同樣的品質與保證，讓你少花一半的錢</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROMISES ── -->
+  <section class="promises" id="promises">
+    <div class="container">
+      <p class="section-eyebrow">服務承諾</p>
+      <h2 class="section-title">讓你「付了錢又後悔」<br />的恐懼，我來承擔</h2>
+      <div class="promise-grid">
+        <div class="promise-card">
+          <div class="promise-icon">🔄</div>
+          <h3>一個月無限修改</h3>
+          <p>交付後整整 30 天，需求有變、覺得不對、想調整方向——無限次修改，不另收費。你最大的恐懼是「付了錢但做出來不是我要的」，這件事我幫你歸零。</p>
+        </div>
+        <div class="promise-card">
+          <div class="promise-icon">📖</div>
+          <h3>附詳細操作說明文件</h3>
+          <p>每個交付物都有中文操作說明（截圖步驟或影片），讓你不需要懂技術就能自己維護。工具給了你，你要真的會用才算數。</p>
+        </div>
+        <div class="promise-card">
+          <div class="promise-icon">💰</div>
+          <h3>明確報價，無隱藏費用</h3>
+          <p>這個案子預計幾天完成、費用多少，一開始就說清楚。沒有「依需求複雜度而定」的模糊話，沒有做到一半追加費用。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <p class="section-eyebrow">客戶怎麼說</p>
+      <h2 class="section-title">真實回饋，不是廣告話術</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="t-quote">「以前每天早上第一件事就是巡蝦皮，現在起床打開 Email 就看到報表了，整個人心情都不一樣。」</p>
+          <div class="t-author">
+            <div class="t-avatar">E</div>
+            <div>
+              <p class="t-name">電商老闆・服飾品牌</p>
+              <div class="t-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="t-quote">「LINE 機器人上線之後，我終於可以好好睡覺了。以前半夜還在手機回「有空位」，現在全部機器人處理。」</p>
+          <div class="t-author">
+            <div class="t-avatar">美</div>
+            <div>
+              <p class="t-name">美容工作室・台北</p>
+              <div class="t-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="t-quote">「說明文件做得很詳細，我完全不懂程式但照著截圖就會操作了。有問題問他也回得很快，真的像朋友在幫忙。」</p>
+          <div class="t-author">
+            <div class="t-avatar">餐</div>
+            <div>
+              <p class="t-name">餐廳老闆・台中</p>
+              <div class="t-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <p class="section-eyebrow">常見問題</p>
+      <h2 class="section-title">你可能想問的事</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            我不懂技術，可以跟你合作嗎？
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            <p>完全可以。我的工作就是用人話把技術翻譯給你聽。你只需要告訴我「哪件事讓你最頭大」，剩下的我來處理。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            「無限修改」是認真的嗎？有什麼限制？
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            <p>是認真的。30 天內針對同一個案子的需求調整、視覺修改、功能微調，都不另收費。唯一的例外是「全部重做一個不同方向的案子」——那就需要重新報價了。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            費用大概是多少？
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            <p>每個案子不同，但我承諾一定比市場均價低 30–50%。你先跟我說需求，我給你明確報價，再決定要不要做。沒有壓力。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            大概要多久才能完成？
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            <p>依案子複雜度而定，但我報價時一定會給明確的天數。簡單的 LINE 機器人可以一週內完成，完整電商爬蟲約 2–3 週，形象官網約 2–4 週。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            交付之後如果出問題怎麼辦？
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-a">
+            <p>30 天內的任何問題直接找我，免費處理。30 天後如有需要，以時費協助維護，費用一樣公道。我不是做完就走的那種。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <div class="contact-text">
+        <p class="section-eyebrow light">準備好了嗎？</p>
+        <h2>跟我說說你<br />每天最浪費時間的事</h2>
+        <p class="contact-desc">不用準備簡報，不用懂技術。就像跟朋友聊天一樣，說說你的狀況，我來告訴你能幫什麼。</p>
+        <ul class="contact-promises">
+          <li>✅ 免費諮詢，無強迫推銷</li>
+          <li>✅ 24 小時內回覆</li>
+          <li>✅ 報價後再決定要不要做</li>
+        </ul>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">你的稱呼</label>
+          <input type="text" id="name" name="name" placeholder="王老闆 / 林小姐 都可以" required />
+        </div>
+        <div class="form-group">
+          <label for="industry">你的行業</label>
+          <select id="industry" name="industry" required>
+            <option value="" disabled selected>選擇你的行業</option>
+            <option value="ecommerce">電商 / 零售</option>
+            <option value="food">餐飲</option>
+            <option value="beauty">美容 / SPA</option>
+            <option value="clinic">診所 / 醫療</option>
+            <option value="other">其他服務業</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="pain">你最想解決的問題</label>
+          <textarea id="pain" name="pain" rows="4" placeholder="例如：我每天要手動更新 Excel，或是 LINE 常常沒空回..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="contact-info">怎麼聯絡你？</label>
+          <input type="text" id="contact-info" name="contact-info" placeholder="LINE ID / Email / 電話，你習慣哪個都行" required />
+        </div>
+        <button type="submit" class="btn-primary btn-full">送出，讓我來幫你 →</button>
+        <p class="form-note">提交後我會在 24 小時內主動聯絡你</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">Open<span>Mind</span></a>
+        <p>幫你省時間，讓你準時下班陪家人。</p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">服務項目</a>
+        <a href="#how-it-works">合作流程</a>
+        <a href="#results">成果數字</a>
+        <a href="#promises">服務承諾</a>
+        <a href="#contact">聯絡我</a>
+      </div>
+      <div class="footer-badges">
+        <span>📌 30 天無限修改</span>
+        <span>📖 附操作說明文件</span>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 OpenMind. All rights reserved.</p>
+  </footer>
+
+  <a href="#contact" class="fab" aria-label="聯絡我">💬</a>
+
+  <script src="app.js"></script>
+</body>
+</html>
