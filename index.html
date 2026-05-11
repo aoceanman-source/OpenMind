@@ -7,7 +7,7 @@
   <meta name="description" content="幫電商與服務業老闆用自動化工具消除重複性工作。LINE 智能客服、電商查價爬蟲、形象官網、自動化工作流。一個月無限修改保證。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -16,8 +16,7 @@
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="#" class="navbar__logo">
-        <span class="logo-mark">A</span>
-        <span class="logo-text">AutoMate<span class="logo-accent">Pro</span></span>
+        <span class="logo-text">OpenMind<span class="logo-accent"> Studio</span></span>
       </a>
       <nav class="navbar__nav" id="navMenu">
         <a href="#services">服務項目</a>
@@ -33,13 +32,17 @@
 
   <!-- ─── HERO ─── -->
   <section class="hero" id="hero">
+    <div class="hero__bg">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80" alt="" aria-hidden="true" />
+      <div class="hero__overlay"></div>
+    </div>
     <div class="container hero__inner">
       <div class="hero__content">
         <p class="hero__eyebrow">自動化工程師｜LINE 客服｜形象官網</p>
         <h1 class="hero__title">
           把你每天做三遍的事，<br />
           交給我做一次，<br />
-          <span class="text-accent">然後讓系統永遠幫你做。</span>
+          然後讓系統永遠幫你做。
         </h1>
         <p class="hero__subtitle">
           我幫電商與服務業老闆，用自動化工具消除重複性工作，<br class="br-desktop" />
@@ -50,25 +53,10 @@
           <a href="#services" class="btn btn--ghost btn--lg">看看我能做什麼</a>
         </div>
         <div class="hero__badges">
-          <span class="badge">✅ 一個月無限修改</span>
-          <span class="badge">✅ 附操作說明文件</span>
-          <span class="badge">✅ 高 CP 值入門方案</span>
+          <span class="badge">一個月無限修改</span>
+          <span class="badge">附操作說明文件</span>
+          <span class="badge">高 CP 值入門方案</span>
         </div>
-      </div>
-      <div class="hero__visual" aria-hidden="true">
-        <div class="hero__card hero__card--1">
-          <div class="card-icon">🔍</div>
-          <div class="card-text">競品查價<br /><span class="mono">自動完成</span></div>
-        </div>
-        <div class="hero__card hero__card--2">
-          <div class="card-icon">🤖</div>
-          <div class="card-text">LINE 客服<br /><span class="mono">24hr 在線</span></div>
-        </div>
-        <div class="hero__card hero__card--3">
-          <div class="card-icon">⚙️</div>
-          <div class="card-text">重複工作<br /><span class="mono">系統代勞</span></div>
-        </div>
-        <div class="hero__glow"></div>
       </div>
     </div>
     <div class="hero__scroll-hint">
@@ -79,24 +67,36 @@
 
   <!-- ─── PAIN POINTS ─── -->
   <section class="pain" id="pain">
+    <div class="pain__bg">
+      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1600&q=80" alt="" aria-hidden="true" />
+      <div class="pain__overlay"></div>
+    </div>
     <div class="container">
       <p class="section-eyebrow">你是不是也這樣？</p>
       <h2 class="section-title">每天都在做<span class="text-accent">這些事</span>嗎？</h2>
       <div class="pain__grid">
         <div class="pain__card">
-          <div class="pain__icon">😫</div>
+          <div class="pain__icon-wrap">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="數據分析" />
+          </div>
           <p>每天手動巡 5 個競品網站，花 1 小時調一次售價</p>
         </div>
         <div class="pain__card">
-          <div class="pain__icon">📱</div>
+          <div class="pain__icon-wrap">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&q=80" alt="LINE 客服" />
+          </div>
           <p>半夜 11 點還在手動回 LINE：「請問今天還有空嗎？」</p>
         </div>
         <div class="pain__card">
-          <div class="pain__icon">📊</div>
+          <div class="pain__icon-wrap">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80" alt="對帳報表" />
+          </div>
           <p>每個月底複製貼上 Excel 三個小時，對帳對到懷疑人生</p>
         </div>
         <div class="pain__card">
-          <div class="pain__icon">🌐</div>
+          <div class="pain__icon-wrap">
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&q=80" alt="官網" />
+          </div>
           <p>客戶 Google 你找不到，或找到的是五年前做的醜網站</p>
         </div>
       </div>
@@ -112,52 +112,68 @@
       <div class="services__grid">
 
         <div class="service-card">
-          <div class="service-card__icon">🔍</div>
-          <h3>電商競品查價自動化</h3>
-          <p>定時爬取指定電商平台的競品價格，自動整理成報表通知你。再也不用每天手動巡價。</p>
-          <ul class="service-card__features">
-            <li>多平台同時監控（蝦皮、Momo、PChome 等）</li>
-            <li>價格變動自動通知（LINE / Email）</li>
-            <li>每日 / 週報表自動生成</li>
-          </ul>
-          <div class="service-card__tag">電商必備</div>
+          <div class="service-card__img">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="電商查價自動化" />
+          </div>
+          <div class="service-card__body">
+            <h3>電商競品查價自動化</h3>
+            <p>定時爬取指定電商平台的競品價格，自動整理成報表通知你。再也不用每天手動巡價。</p>
+            <ul class="service-card__features">
+              <li>多平台同時監控（蝦皮、Momo、PChome 等）</li>
+              <li>價格變動自動通知（LINE / Email）</li>
+              <li>每日 / 週報表自動生成</li>
+            </ul>
+            <div class="service-card__tag">電商必備</div>
+          </div>
         </div>
 
         <div class="service-card service-card--featured">
           <div class="service-card__badge">最熱門</div>
-          <div class="service-card__icon">🤖</div>
-          <h3>LINE 智能客服</h3>
-          <p>幫你打造 24 小時自動回應的 LINE 客服機器人，常見問題全自動，你睡覺它繼續工作。</p>
-          <ul class="service-card__features">
-            <li>FAQ 常見問題自動回覆</li>
-            <li>RAG 知識庫客製化內容</li>
-            <li>限制範圍外自動轉人工</li>
-          </ul>
-          <div class="service-card__tag">服務業首選</div>
+          <div class="service-card__img">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" alt="LINE 智能客服" />
+          </div>
+          <div class="service-card__body">
+            <h3>LINE 智能客服</h3>
+            <p>幫你打造 24 小時自動回應的 LINE 客服機器人，常見問題全自動，你睡覺它繼續工作。</p>
+            <ul class="service-card__features">
+              <li>FAQ 常見問題自動回覆</li>
+              <li>RAG 知識庫客製化內容</li>
+              <li>限制範圍外自動轉人工</li>
+            </ul>
+            <div class="service-card__tag">服務業首選</div>
+          </div>
         </div>
 
         <div class="service-card">
-          <div class="service-card__icon">🌐</div>
-          <h3>形象官網</h3>
-          <p>打造讓客戶一眼看見你專業的響應式官網，從第一印象就建立信任感，把訪客變成詢問。</p>
-          <ul class="service-card__features">
-            <li>RWD 手機電腦完美顯示</li>
-            <li>公司介紹 + 服務展示</li>
-            <li>潛在客戶聯絡 / 詢問表單</li>
-          </ul>
-          <div class="service-card__tag">品牌必備</div>
+          <div class="service-card__img">
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80" alt="形象官網" />
+          </div>
+          <div class="service-card__body">
+            <h3>形象官網</h3>
+            <p>打造讓客戶一眼看見你專業的響應式官網，從第一印象就建立信任感，把訪客變成詢問。</p>
+            <ul class="service-card__features">
+              <li>RWD 手機電腦完美顯示</li>
+              <li>公司介紹 + 服務展示</li>
+              <li>潛在客戶聯絡 / 詢問表單</li>
+            </ul>
+            <div class="service-card__tag">品牌必備</div>
+          </div>
         </div>
 
         <div class="service-card">
-          <div class="service-card__icon">⚙️</div>
-          <h3>客製化自動化工作流</h3>
-          <p>把你每天重複做的流程交給系統。報價、對帳、寄信、填單——只要有規律，就能自動化。</p>
-          <ul class="service-card__features">
-            <li>各行業日常流程自動化</li>
-            <li>系統串接整合（表單 / Email / 試算表）</li>
-            <li>減少人工、降低人力成本</li>
-          </ul>
-          <div class="service-card__tag">各行業適用</div>
+          <div class="service-card__img">
+            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="自動化工作流" />
+          </div>
+          <div class="service-card__body">
+            <h3>客製化自動化工作流</h3>
+            <p>把你每天重複做的流程交給系統。報價、對帳、寄信、填單——只要有規律，就能自動化。</p>
+            <ul class="service-card__features">
+              <li>各行業日常流程自動化</li>
+              <li>系統串接整合（表單 / Email / 試算表）</li>
+              <li>減少人工、降低人力成本</li>
+            </ul>
+            <div class="service-card__tag">各行業適用</div>
+          </div>
         </div>
 
       </div>
@@ -166,6 +182,10 @@
 
   <!-- ─── WHY ME ─── -->
   <section class="why-me" id="why-me">
+    <div class="why-me__bg">
+      <img src="https://images.unsplash.com/photo-1553531384-397c80973a0b?w=1600&q=80" alt="" aria-hidden="true" />
+      <div class="why-me__overlay"></div>
+    </div>
     <div class="container">
       <p class="section-eyebrow">為什麼選我</p>
       <h2 class="section-title">三個讓你<span class="text-accent">零風險</span>的承諾</h2>
@@ -238,7 +258,10 @@
 
   <!-- ─── CONTACT ─── -->
   <section class="contact" id="contact">
-    <div class="container contact__inner">
+    <div class="contact__img-panel">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="辦公室" />
+    </div>
+    <div class="contact__right">
       <div class="contact__copy">
         <p class="section-eyebrow">免費諮詢</p>
         <h2 class="section-title">跟我說說<br /><span class="text-accent">你每天最浪費時間的事</span></h2>
@@ -246,15 +269,15 @@
         <div class="contact__info">
           <div class="contact__item">
             <span class="contact__label">Tasker</span>
-            <a href="#" class="contact__link">查看我的 Tasker 頁面 →</a>
+            <a href="https://www.tasker.com.tw/workroom/openmaind-studio" class="contact__link" target="_blank" rel="noopener">查看我的 Tasker 頁面 →</a>
           </div>
           <div class="contact__item">
             <span class="contact__label">Email</span>
-            <a href="mailto:your@email.com" class="contact__link">your@email.com</a>
+            <a href="mailto:aoceanman@gmail.com" class="contact__link">aoceanman@gmail.com</a>
           </div>
           <div class="contact__item">
             <span class="contact__label">LINE</span>
-            <a href="#" class="contact__link">加我好友 →</a>
+            <a href="https://line.me/ti/p/HCj5miljFF" class="contact__link" target="_blank" rel="noopener">加我好友 →</a>
           </div>
         </div>
       </div>
@@ -278,7 +301,7 @@
         <button type="submit" class="btn btn--primary btn--full">送出需求，我會在 24 小時內回覆 →</button>
         <p class="form-note">* 諮詢完全免費，不會有任何推銷壓力。</p>
         <div class="form-success" id="formSuccess" hidden>
-          <span>✅</span> 收到了！我會在 24 小時內跟你聯繫。
+          收到了！我會在 24 小時內跟你聯繫。
         </div>
       </form>
     </div>
@@ -288,9 +311,8 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <a href="#" class="navbar__logo">
-          <span class="logo-mark">A</span>
-          <span class="logo-text">AutoMate<span class="logo-accent">Pro</span></span>
+        <a href="#" class="navbar__logo footer__logo">
+          <span class="logo-text">OpenMind<span class="logo-accent"> Studio</span></span>
         </a>
         <p>幫你省時間，讓你準時下班陪家人。</p>
       </div>
@@ -302,7 +324,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© 2026 AutoMatePro. 用技術幫你找回時間。</p>
+      <p>© 2026 OpenMind Studio. 用技術幫你找回時間。</p>
     </div>
   </footer>
 
