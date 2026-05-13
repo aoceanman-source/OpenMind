@@ -636,7 +636,7 @@ button { cursor: pointer; font-family: inherit; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 40px;
+  gap: 0;
 }
 
 .contact__copy .section-title { margin-bottom: 16px; }

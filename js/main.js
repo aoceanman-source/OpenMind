@@ -23,7 +23,7 @@ navMenu.querySelectorAll('a').forEach(link => {
 
 /* ─── SCROLL REVEAL ─── */
 const revealEls = document.querySelectorAll(
-  '.pain__card, .service-card, .why-card, .about__content, .about__avatar-wrap, .contact__copy, .contact__form, .hero__content, .hero__visual'
+  '.pain__card, .service-card, .why-card, .about__content, .about__avatar-wrap, .contact__copy, .hero__content'
 );
 
 revealEls.forEach((el, i) => {
@@ -42,43 +42,6 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 revealEls.forEach(el => revealObserver.observe(el));
-
-/* ─── CONTACT FORM ─── */
-const form        = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
-
-  let valid = true;
-  form.querySelectorAll('[required]').forEach(field => {
-    field.classList.remove('error');
-    if (!field.value.trim()) {
-      field.classList.add('error');
-      valid = false;
-    }
-  });
-
-  if (!valid) return;
-
-  /* Simulate submission — replace with real endpoint (Formspree / EmailJS / etc.) */
-  const submitBtn = form.querySelector('[type="submit"]');
-  submitBtn.textContent = '傳送中…';
-  submitBtn.disabled = true;
-
-  setTimeout(() => {
-    form.querySelectorAll('input, textarea').forEach(f => { f.value = ''; });
-    formSuccess.hidden = false;
-    submitBtn.textContent = '送出需求，我會在 24 小時內回覆 →';
-    submitBtn.disabled = false;
-    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }, 1200);
-});
-
-/* clear error state on input */
-form.querySelectorAll('[required]').forEach(field => {
-  field.addEventListener('input', () => field.classList.remove('error'));
-});
 
 /* ─── SMOOTH ACTIVE NAV HIGHLIGHT ─── */
 const sections = document.querySelectorAll('section[id]');
