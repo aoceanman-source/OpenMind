@@ -23,7 +23,7 @@ navMenu.querySelectorAll('a').forEach(link => {
 
 /* ─── SCROLL REVEAL ─── */
 const revealEls = document.querySelectorAll(
-  '.pain__card, .service-card, .why-card, .about__content, .about__avatar-wrap, .contact__copy, .hero__content'
+  '.pain__card, .service-card, .why-card, .about__content, .about__avatar-wrap, .contact__copy, .hero__content, .portfolio-card'
 );
 
 revealEls.forEach((el, i) => {
