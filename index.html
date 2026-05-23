@@ -3,12 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>自動化解決方案｜幫你省時間，準時下班陪家人</title>
-  <meta name="description" content="幫電商與服務業老闆用自動化工具消除重複性工作。LINE 智能客服、電商查價爬蟲、形象官網、自動化工作流。一個月無限修改保證。" />
+
+  <!-- ── SEO Primary ── -->
+  <title>OpenMind Studio｜LINE Bot 智能客服・爬蟲自動化・形象官網・台灣接案工程師</title>
+  <meta name="description" content="OpenMind Studio 專為電商與服務業老闆打造自動化解決方案：LINE 智能客服 Bot、競品查價爬蟲、形象官網、自動化工作流。一個月無限修改保證，附中文操作說明，高 CP 值，讓你準時下班陪家人。" />
+  <link rel="canonical" href="https://aoceanman-source.github.io/OpenMind/" />
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aoceanman-source.github.io/OpenMind/" />
+  <meta property="og:title" content="OpenMind Studio｜LINE Bot × 爬蟲自動化 × 形象官網" />
+  <meta property="og:description" content="幫電商與服務業老闆用自動化工具消除重複性工作，讓你準時下班陪家人。一個月無限修改保證。" />
+  <meta property="og:locale" content="zh_TW" />
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OpenMind Studio｜自動化接案工程師" />
+  <meta name="twitter:description" content="LINE Bot、爬蟲、官網、自動化工作流。一個月無限修改。" />
+
+  <!-- ── Structured Data ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "OpenMind Studio",
+    "url": "https://aoceanman-source.github.io/OpenMind/",
+    "email": "aoceanman@gmail.com",
+    "description": "台灣接案工程師，專攻 LINE Bot、爬蟲自動化、形象官網開發",
+    "areaServed": "TW",
+    "serviceType": ["LINE Bot開發","爬蟲自動化","形象官網","自動化工作流"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Portfolio 篩選器 & mockup（只新增，不覆蓋原 CSS）── */
+    .portfolio__filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      font-size: .65rem;
+      font-weight: 400;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--font-sans);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+    .portfolio-card.hidden { display: none; }
+
+    /* mockup 視窗（嵌入 portfolio-card 頂部） */
+    .portfolio-card__mockup {
+      margin: -32px -32px 20px -32px;
+      height: 160px;
+      overflow: hidden;
+      background: #0d1117;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--gray-light);
+      position: relative;
+    }
+    .mock-win {
+      width: 86%;
+      background: #161b22;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.08);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,.5);
+      font-family: 'DM Mono', monospace;
+    }
+    .mock-bar {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 8px;
+      background: #21262d;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .m-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .m-dot.r { background: #ff5f56; }
+    .m-dot.y { background: #ffbd2e; }
+    .m-dot.g { background: #27c93f; }
+    .mock-url-bar {
+      flex: 1; margin: 0 6px;
+      background: rgba(255,255,255,.05);
+      border-radius: 3px;
+      font-size: .5rem;
+      color: rgba(255,255,255,.3);
+      padding: 2px 6px;
+      letter-spacing: .5px;
+    }
+    .mock-body { padding: 8px 10px; }
+
+    /* terminal lines */
+    .t-row { display: flex; gap: 6px; font-size: .58rem; line-height: 1.8; }
+    .t-ps  { color: #7ee787; flex-shrink: 0; }
+    .t-cmd { color: #e6edf3; }
+    .t-out { color: #58a6ff; padding-left: 12px; }
+    .t-ok  { color: #7ee787; padding-left: 12px; }
+    .t-dim { color: rgba(255,255,255,.3); padding-left: 12px; }
+
+    /* chat bubbles */
+    .chat-row { display: flex; gap: 5px; align-items: flex-end; margin-bottom: 5px; }
+    .chat-row.right { justify-content: flex-end; }
+    .chat-av { width: 16px; height: 16px; border-radius: 50%; background: #00b900; display: flex; align-items: center; justify-content: center; font-size: .5rem; flex-shrink: 0; }
+    .bbl { max-width: 75%; font-size: .56rem; padding: 4px 7px; border-radius: 10px; line-height: 1.4; }
+    .bbl.bot  { background: #21262d; color: #e6edf3; border-bottom-left-radius: 2px; }
+    .bbl.user { background: #00b900; color: #fff; border-bottom-right-radius: 2px; }
+
+    /* table rows (crawler) */
+    .tbl-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4px; font-size: .55rem; margin-bottom: 3px; }
+    .tbl-row.hd { color: rgba(255,255,255,.3); border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 3px; margin-bottom: 5px; }
+    .tbl-cell { color: #e6edf3; }
+    .tbl-cell.dn { color: #f85149; }
+    .tbl-cell.up { color: #7ee787; }
+
+    /* result badge on mockup */
+    .mock-result {
+      position: absolute;
+      bottom: 8px; right: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: .55rem;
+      background: rgba(0,0,0,.7);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #7ee787;
+      padding: 2px 7px;
+      border-radius: 2px;
+      backdrop-filter: blur(4px);
+    }
+    .mock-bg-linebot { background: linear-gradient(135deg,#071a0e,#0a2e18); }
+    .mock-bg-crawler { background: linear-gradient(135deg,#0d1117,#1a2744); }
+    .mock-bg-web     { background: linear-gradient(135deg,#0d1117,#1a1030); }
+    .mock-bg-auto    { background: linear-gradient(135deg,#0d1117,#1a2010); }
+  </style>
 </head>
 <body>
 
@@ -18,7 +163,7 @@
       <a href="#" class="navbar__logo">
         <span class="logo-text">OpenMind<span class="logo-accent"> Studio</span></span>
       </a>
-      <nav class="navbar__nav" id="navMenu">
+      <nav class="navbar__nav" id="navMenu" aria-label="主要導覽">
         <a href="#services">服務項目</a>
         <a href="#portfolio">作品集</a>
         <a href="#why-me">為什麼選我</a>
@@ -186,31 +331,71 @@
     <div class="container">
       <p class="section-eyebrow">實作案例</p>
       <h2 class="section-title">這些功能<br /><span class="text-accent">做出來了</span></h2>
-      <p class="portfolio__intro">每一個案例都是實際可運行的專案，不是 mockup。</p>
+      <p class="portfolio__intro">每一個案例都是實際可運行的專案，不是 mockup。程式碼公開，歡迎直接查看。</p>
+
+      <!-- 篩選器 -->
+      <div class="portfolio__filters" role="group" aria-label="篩選作品類別">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="linebot">LINE Bot</button>
+        <button class="filter-btn" data-filter="crawler">爬蟲自動化</button>
+        <button class="filter-btn" data-filter="web">網站</button>
+      </div>
+
       <div class="portfolio__grid">
 
-        <div class="portfolio-card">
+        <!-- 1. LINE Bot AI 客服 -->
+        <article class="portfolio-card" data-cat="linebot">
+          <div class="portfolio-card__mockup mock-bg-linebot">
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url-bar">line.me · AI 客服系統</span>
+              </div>
+              <div class="mock-body">
+                <div class="chat-row"><div class="chat-av">🟢</div><div class="bbl bot">您好！請問有什麼需要協助的？</div></div>
+                <div class="chat-row right"><div class="bbl user">請問今天還有空嗎？</div></div>
+                <div class="chat-row"><div class="chat-av">🟢</div><div class="bbl bot">📅 有的！以下時段可預約 → 已收集您的資料 ✅</div></div>
+              </div>
+            </div>
+            <span class="mock-result">✓ 上線中</span>
+          </div>
           <div class="portfolio-card__header">
             <span class="portfolio-card__tag">LINE Bot</span>
           </div>
           <h3>LINE Bot AI 客服系統</h3>
-          <p>關鍵字自動回覆 FAQ、引導留單、收集潛在客戶資料、RAG 知識庫、轉真人客服偵測。</p>
+          <p>關鍵字自動回覆 FAQ、引導留單、收集潛在客戶資料。整合 RAG 知識庫，回答準確率提升 80%。超出範圍自動轉真人，不漏接任何詢問。</p>
           <div class="portfolio-card__features">
             <span>關鍵字對答</span>
             <span>RAG 知識庫</span>
             <span>名單收集</span>
             <span>LINE SDK</span>
+            <span>Gemini AI</span>
           </div>
           <a href="https://github.com/aoceanman-source/OpenMind/tree/main/line-bot-ai-customer-service" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
-        </div>
+        </article>
 
-        <div class="portfolio-card">
+        <!-- 2. LINE Bot 餐廳版 -->
+        <article class="portfolio-card" data-cat="linebot">
+          <div class="portfolio-card__mockup mock-bg-linebot">
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url-bar">line.me · 餐廳客服機器人</span>
+              </div>
+              <div class="mock-body">
+                <div class="chat-row"><div class="chat-av">🍽️</div><div class="bbl bot">請選擇服務 👇 訂位 / 優惠券 / 公告</div></div>
+                <div class="chat-row right"><div class="bbl user">兌換優惠券</div></div>
+                <div class="chat-row"><div class="chat-av">🍽️</div><div class="bbl bot">🎟 您的點數：120 點 → 可兌換免費甜點</div></div>
+              </div>
+            </div>
+            <span class="mock-result">完整功能</span>
+          </div>
           <div class="portfolio-card__header">
             <span class="portfolio-card__tag">LINE Bot</span>
             <span class="portfolio-card__tag portfolio-card__tag--accent">餐飲版</span>
           </div>
           <h3>LINE Bot 餐廳版</h3>
-          <p>完整餐廳客服機器人：帶位登記、公告發送、優惠券回饋、圖片辨識 POS、成本分析。</p>
+          <p>完整餐廳客服機器人：帶位登記、公告發送、優惠券回饋系統、AI 圖片辨識 POS、成本分析報表。一套系統搞定前台到後台。</p>
           <div class="portfolio-card__features">
             <span>帶位登記</span>
             <span>優惠券系統</span>
@@ -218,14 +403,30 @@
             <span>Google Sheet</span>
           </div>
           <a href="https://github.com/aoceanman-source/OpenMind/tree/main/line-bot-restaurant" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
-        </div>
+        </article>
 
-        <div class="portfolio-card">
+        <!-- 3. 電商爬蟲 -->
+        <article class="portfolio-card" data-cat="crawler">
+          <div class="portfolio-card__mockup mock-bg-crawler">
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url-bar">price-monitor · 今日報表</span>
+              </div>
+              <div class="mock-body">
+                <div class="tbl-row hd"><span>商品</span><span>昨日</span><span>今日</span></div>
+                <div class="tbl-row"><span class="tbl-cell">無線耳機 A</span><span class="tbl-cell">$1,290</span><span class="tbl-cell dn">↓ $1,190</span></div>
+                <div class="tbl-row"><span class="tbl-cell">藍芽喇叭 B</span><span class="tbl-cell">$890</span><span class="tbl-cell up">↑ $990</span></div>
+                <div class="tbl-row"><span class="tbl-cell">智慧手錶 C</span><span class="tbl-cell">$3,500</span><span class="tbl-cell dn">↓ $3,200</span></div>
+              </div>
+            </div>
+            <span class="mock-result">6 平台同步</span>
+          </div>
           <div class="portfolio-card__header">
             <span class="portfolio-card__tag">自動化</span>
           </div>
           <h3>電商競品查價爬蟲</h3>
-          <p>多電商平台同時監控：PChome、露天、momo、Yahoo、蝦皮、酷澎。價格變動自動通知LINE/Email。</p>
+          <p>同時監控 PChome、露天、Momo、Yahoo、蝦皮、酷澎 6 大平台。價格變動自動通知 LINE / Email，每日自動排程執行，完全不需要人工介入。</p>
           <div class="portfolio-card__features">
             <span>多平台爬蟲</span>
             <span>價格監控</span>
@@ -233,14 +434,30 @@
             <span>Python + Playwright</span>
           </div>
           <a href="https://github.com/aoceanman-source/OpenMind/tree/main/ecommerce-scraper" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
-        </div>
+        </article>
 
-        <div class="portfolio-card">
+        <!-- 4. AI 工作流程引擎 -->
+        <article class="portfolio-card" data-cat="crawler">
+          <div class="portfolio-card__mockup mock-bg-auto">
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url-bar">workflow-engine · 任務佇列</span>
+              </div>
+              <div class="mock-body">
+                <div class="t-row"><span class="t-ps">[09:01]</span><span class="t-out">Webhook 觸發 → 新表單提交</span></div>
+                <div class="t-row"><span class="t-ps">[09:01]</span><span class="t-ok">AI 分流 → 路由至「報價流程」</span></div>
+                <div class="t-row"><span class="t-ps">[09:01]</span><span class="t-out">Email 已寄出 ✓  LINE 已通知 ✓</span></div>
+                <div class="t-row"><span class="t-ps">[09:02]</span><span class="t-ok">任務完成，耗時 1.2s ✅</span></div>
+              </div>
+            </div>
+            <span class="mock-result">AI 決策節點</span>
+          </div>
           <div class="portfolio-card__header">
             <span class="portfolio-card__tag">自動化</span>
           </div>
           <h3>AI 工作流程引擎</h3>
-          <p>多流程串聯自動化系統，支援 Webhook / LINE / Email 觸發，Gemini AI 智能分流，即時狀態追蹤。</p>
+          <p>多流程串聯自動化系統，支援 Webhook / LINE / Email 觸發。Gemini AI 智能分流，視覺化流程設定，即時任務狀態追蹤。</p>
           <div class="portfolio-card__features">
             <span>視覺化流程設定</span>
             <span>AI 決策節點</span>
@@ -248,14 +465,30 @@
             <span>多觸發支援</span>
           </div>
           <a href="https://github.com/aoceanman-source/OpenMind/tree/main/ai-workflow-automation" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
-        </div>
+        </article>
 
-        <div class="portfolio-card">
+        <!-- 5. 網站 AI 聊天 Widget -->
+        <article class="portfolio-card" data-cat="web">
+          <div class="portfolio-card__mockup mock-bg-web">
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url-bar">yoursite.com · AI 聊天 Widget</span>
+              </div>
+              <div class="mock-body">
+                <div class="t-row"><span class="t-ps">$</span><span class="t-cmd">&lt;script src="widget.js"&gt;&lt;/script&gt;</span></div>
+                <div class="t-row"><span class="t-ok">✓ Widget 初始化完成</span></div>
+                <div class="t-row"><span class="t-out">訪客 #1842 開始對話</span></div>
+                <div class="t-row"><span class="t-ok">→ LINE 導流連結已發送 ✅</span></div>
+              </div>
+            </div>
+            <span class="mock-result">一行嵌入</span>
+          </div>
           <div class="portfolio-card__header">
             <span class="portfolio-card__tag">網站元件</span>
           </div>
           <h3>網站 AI 聊天 Widget</h3>
-          <p>可嵌入任何網站的 AI 聊天窗口，自動識別 LINE 導流，Gemini 即時回覆，訪客資訊收集。</p>
+          <p>一行程式碼嵌入任何網站的 AI 聊天窗口，自動識別 LINE 導流，Gemini 即時回覆，訪客資訊自動收集，對話紀錄可匯出。</p>
           <div class="portfolio-card__features">
             <span>一行程式碼嵌入</span>
             <span>LINE 導流</span>
@@ -263,14 +496,32 @@
             <span>對話紀錄匯出</span>
           </div>
           <a href="https://github.com/aoceanman-source/OpenMind/tree/main/website-chatbot-widget" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
-        </div>
+        </article>
 
-        <div class="portfolio-card">
+        <!-- 6. 落地頁模板 -->
+        <article class="portfolio-card" data-cat="web">
+          <div class="portfolio-card__mockup mock-bg-web">
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url-bar">landing-template · 餐廳版預覽</span>
+              </div>
+              <div class="mock-body" style="padding:6px 8px;">
+                <div style="height:14px;background:#888;border-radius:2px;margin-bottom:5px;display:flex;align-items:center;padding:0 5px;"><span style="font-size:.48rem;color:#fff;letter-spacing:.5px;">🍜 山田拉麵｜台北信義店</span></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px;">
+                  <div style="height:28px;background:rgba(255,255,255,.06);border-radius:2px;"></div>
+                  <div style="height:28px;background:rgba(255,255,255,.1);border-radius:2px;"></div>
+                </div>
+                <div style="height:10px;background:rgba(255,255,255,.06);border-radius:2px;"></div>
+              </div>
+            </div>
+            <span class="mock-result">多種風格</span>
+          </div>
           <div class="portfolio-card__header">
             <span class="portfolio-card__tag">網站模板</span>
           </div>
           <h3>落地頁 / 形象官網模板</h3>
-          <p>響應式網站模板，包含餐廳版、工作室版，RWD 手機電腦完美顯示，聯絡表單整合。</p>
+          <p>響應式網站模板，包含餐廳版、工作室版，RWD 手機電腦完美顯示，聯絡表單整合，無需後端即可部署。</p>
           <div class="portfolio-card__features">
             <span>RWD 響應式</span>
             <span>HTML/CSS/JS</span>
@@ -278,7 +529,7 @@
             <span>無需後端</span>
           </div>
           <a href="https://github.com/aoceanman-source/OpenMind/tree/main/landing-page-template" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
-        </div>
+        </article>
 
       </div>
     </div>
@@ -294,7 +545,6 @@
       <p class="section-eyebrow">為什麼選我</p>
       <h2 class="section-title">三個讓你<span class="text-accent">零風險</span>的承諾</h2>
       <div class="why-me__grid">
-
         <div class="why-card">
           <div class="why-card__number mono">01</div>
           <div class="why-card__content">
@@ -303,7 +553,6 @@
             <p class="why-card__note">Tasker 平台多數工程師交付即結案，修改另計。我把你最大的恐懼直接歸零。</p>
           </div>
         </div>
-
         <div class="why-card">
           <div class="why-card__number mono">02</div>
           <div class="why-card__content">
@@ -312,7 +561,6 @@
             <p class="why-card__note">工具給了你，你要真的「會用」才算數。</p>
           </div>
         </div>
-
         <div class="why-card">
           <div class="why-card__number mono">03</div>
           <div class="why-card__content">
@@ -321,21 +569,13 @@
             <p class="why-card__note">省下的預算，留著陪家人吃頓好飯。</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ─── ABOUT ─── -->
   <section class="about" id="about">
-    <div class="container about__inner">
-      <div class="about__avatar-wrap">
-        <div class="about__avatar" aria-label="個人頭像">
-          <div class="avatar-placeholder">
-            <span>你的頭像</span>
-          </div>
-        </div>
-      </div>
+    <div class="container about__inner" style="grid-template-columns:1fr;">
       <div class="about__content">
         <p class="section-eyebrow">關於我</p>
         <h2 class="section-title">我是一個相信<br /><span class="text-accent">時間應該用在值得的地方</span>的開發者</h2>
@@ -397,13 +637,13 @@
         </a>
         <p>幫你省時間，讓你準時下班陪家人。</p>
       </div>
-      <div class="footer__links">
+      <nav class="footer__links" aria-label="頁尾導覽">
         <a href="#services">服務項目</a>
         <a href="#portfolio">作品集</a>
         <a href="#why-me">為什麼選我</a>
         <a href="#about">關於我</a>
         <a href="#contact">免費諮詢</a>
-      </div>
+      </nav>
     </div>
     <div class="footer__bottom">
       <p>© 2026 OpenMind Studio. 用技術幫你找回時間。</p>
@@ -411,5 +651,18 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    /* ── Portfolio Filter ── */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.portfolio-card').forEach(card => {
+          card.classList.toggle('hidden', filter !== 'all' && card.dataset.cat !== filter);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
