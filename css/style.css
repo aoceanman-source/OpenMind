@@ -618,7 +618,6 @@ button { cursor: pointer; font-family: inherit; }
 .contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 80vh;
 }
 .contact__img-panel {
   position: relative;
@@ -933,7 +932,7 @@ button { cursor: pointer; font-family: inherit; }
   .about__avatar-wrap { position: static; max-width: 180px; margin: 0 auto; }
   .about__stats { gap: 24px; }
 
-  .contact__right { padding: 48px 24px; }
+  .contact__right { padding: 40px 24px; }
 }
 
 @media (max-width: 480px) {
