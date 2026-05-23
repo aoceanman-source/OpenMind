@@ -153,6 +153,27 @@
     .mock-bg-crawler { background: linear-gradient(135deg,#0d1117,#1a2744); }
     .mock-bg-web     { background: linear-gradient(135deg,#0d1117,#1a1030); }
     .mock-bg-auto    { background: linear-gradient(135deg,#0d1117,#1a2010); }
+  
+    /* Pain SVG icon */
+    .pain__icon-wrap {
+      width: 88px !important;
+      height: 88px !important;
+      min-width: 88px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .pain__icon-wrap svg,
+    .pain__icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -179,7 +200,7 @@
   <!-- ─── HERO ─── -->
   <section class="hero" id="hero">
     <div class="hero__bg">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80" alt="" aria-hidden="true" />
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=85" alt="" aria-hidden="true" />
       <div class="hero__overlay"></div>
     </div>
     <div class="container hero__inner">
@@ -214,7 +235,7 @@
   <!-- ─── PAIN POINTS ─── -->
   <section class="pain" id="pain">
     <div class="pain__bg">
-      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1600&q=80" alt="" aria-hidden="true" />
+      <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&q=85" alt="" aria-hidden="true" />
       <div class="pain__overlay"></div>
     </div>
     <div class="container">
@@ -223,25 +244,58 @@
       <div class="pain__grid">
         <div class="pain__card">
           <div class="pain__icon-wrap">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="數據分析" />
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.08)"/>
+    <polyline points="12,42 22,28 32,34 48,16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="12" cy="42" r="2" fill="#fff"/>
+    <circle cx="22" cy="28" r="2" fill="#fff"/>
+    <circle cx="32" cy="34" r="2" fill="#fff"/>
+    <circle cx="48" cy="16" r="2" fill="#fff"/>
+    <line x1="12" y1="46" x2="48" y2="46" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  </svg>
           </div>
           <p>每天手動巡 5 個競品網站，花 1 小時調一次售價</p>
         </div>
         <div class="pain__card">
           <div class="pain__icon-wrap">
-            <img src="img/line_icon.png" alt="LINE 客服" />
+            <svg viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg' width='60' height='60'>
+    <circle cx='30' cy='30' r='30' fill='#00B900'/>
+    <path d='M30 13C20.06 13 12 19.94 12 28.42C12 35.98 18.28 42.3 27.02 43.6C27.6 43.72 28.4 43.98 28.6 44.46C28.78 44.9 28.72 45.58 28.66 46.02L28.38 47.7C28.3 48.14 28.02 49.38 30 48.56C32 47.74 40.76 42.4 44.56 38.02C47.2 35.12 48 32.04 48 28.42C48 19.94 39.94 13 30 13Z' fill='white'/>
+    <path d='M25.5 24.5H24C23.72 24.5 23.5 24.72 23.5 25V32C23.5 32.28 23.72 32.5 24 32.5H25.5C25.78 32.5 26 32.28 26 32V25C26 24.72 25.78 24.5 25.5 24.5Z' fill='#00B900'/>
+    <path d='M36 24.5H34.5C34.22 24.5 34 24.72 34 25V29.28L30.88 24.8C30.8 24.64 30.64 24.5 30.46 24.5H28.96C28.68 24.5 28.46 24.72 28.46 25V32C28.46 32.28 28.68 32.5 28.96 32.5H30.46C30.74 32.5 30.96 32.28 30.96 32V27.72L34.1 32.2C34.18 32.36 34.34 32.5 34.52 32.5H36C36.28 32.5 36.5 32.28 36.5 32V25C36.5 24.72 36.28 24.5 36 24.5Z' fill='#00B900'/>
+  </svg>
           </div>
           <p>半夜 11 點還在手動回 LINE：「請問今天還有空嗎？」</p>
         </div>
         <div class="pain__card">
           <div class="pain__icon-wrap">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80" alt="對帳報表" />
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.08)"/>
+    <rect x="12" y="14" width="36" height="32" rx="2" stroke="#fff" stroke-width="1.5"/>
+    <line x1="12" y1="22" x2="48" y2="22" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+    <line x1="12" y1="30" x2="48" y2="30" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <line x1="12" y1="38" x2="48" y2="38" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <line x1="26" y1="14" x2="26" y2="46" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <line x1="38" y1="14" x2="38" y2="46" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <rect x="14" y="16" width="10" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+  </svg>
           </div>
           <p>每個月底複製貼上 Excel 三個小時，對帳對到懷疑人生</p>
         </div>
         <div class="pain__card">
           <div class="pain__icon-wrap">
-            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&q=80" alt="官網" />
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.08)"/>
+    <rect x="10" y="14" width="40" height="30" rx="3" stroke="#fff" stroke-width="1.5"/>
+    <line x1="10" y1="22" x2="50" y2="22" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+    <circle cx="16" cy="18" r="2" fill="rgba(255,255,255,0.4)"/>
+    <circle cx="22" cy="18" r="2" fill="rgba(255,255,255,0.4)"/>
+    <circle cx="28" cy="18" r="2" fill="rgba(255,255,255,0.4)"/>
+    <rect x="32" y="16" width="14" height="4" rx="2" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+    <rect x="14" y="26" width="32" height="3" rx="1" fill="rgba(255,255,255,0.2)"/>
+    <rect x="14" y="32" width="20" height="3" rx="1" fill="rgba(255,255,255,0.12)"/>
+    <rect x="14" y="38" width="26" height="3" rx="1" fill="rgba(255,255,255,0.12)"/>
+  </svg>
           </div>
           <p>客戶 Google 你找不到，或找到的是五年前做的醜網站</p>
         </div>
@@ -259,7 +313,7 @@
 
         <div class="service-card">
           <div class="service-card__img">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="電商查價自動化" />
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=85" alt="電商查價自動化" />
           </div>
           <div class="service-card__body">
             <h3>電商競品查價自動化</h3>
@@ -275,8 +329,12 @@
 
         <div class="service-card service-card--featured">
           <div class="service-card__badge">最熱門</div>
-          <div class="service-card__img">
-            <img src="img/line_icon.png" alt="LINE 智能客服" />
+          <div class="service-card__img" style="background:#00B900; display:flex; align-items:center; justify-content:center;">
+            <svg viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg' width='120' height='120'>
+              <path d='M60 20C35.15 20 15 37.9 15 59.8C15 79.7 32.4 96.4 55.5 99.5C56.9 99.8 58.9 100.4 59.4 101.6C59.8 102.7 59.65 104.4 59.5 105.5L58.8 109.7C58.6 110.8 57.9 114.1 62 112.1C66.1 110.1 85.4 98.3 93.7 88.5C99.5 82.1 101.5 75.3 101.5 59.8C101.5 37.9 81.35 20 60 20Z' fill='white'/>
+              <rect x='41' y='47' width='8' height='22' rx='2' fill='#00B900'/>
+              <path d='M56 47h8l10 14V47h8v22h-8L64 55v14h-8V47z' fill='#00B900'/>
+            </svg>
           </div>
           <div class="service-card__body">
             <h3>LINE 智能客服</h3>
@@ -292,7 +350,7 @@
 
         <div class="service-card">
           <div class="service-card__img">
-            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80" alt="形象官網" />
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=85" alt="形象官網" />
           </div>
           <div class="service-card__body">
             <h3>形象官網</h3>
@@ -308,7 +366,7 @@
 
         <div class="service-card">
           <div class="service-card__img">
-            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="自動化工作流" />
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=85" alt="自動化工作流" />
           </div>
           <div class="service-card__body">
             <h3>客製化自動化工作流</h3>
@@ -371,38 +429,6 @@
             <span>LINE SDK</span>
             <span>Gemini AI</span>
           </div>
-          <a href="https://github.com/aoceanman-source/OpenMind/tree/main/line-bot-ai-customer-service" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
-        </article>
-
-        <!-- 2. LINE Bot 餐廳版 -->
-        <article class="portfolio-card" data-cat="linebot">
-          <div class="portfolio-card__mockup mock-bg-linebot">
-            <div class="mock-win">
-              <div class="mock-bar">
-                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
-                <span class="mock-url-bar">line.me · 餐廳客服機器人</span>
-              </div>
-              <div class="mock-body">
-                <div class="chat-row"><div class="chat-av">🍽️</div><div class="bbl bot">請選擇服務 👇 訂位 / 優惠券 / 公告</div></div>
-                <div class="chat-row right"><div class="bbl user">兌換優惠券</div></div>
-                <div class="chat-row"><div class="chat-av">🍽️</div><div class="bbl bot">🎟 您的點數：120 點 → 可兌換免費甜點</div></div>
-              </div>
-            </div>
-            <span class="mock-result">完整功能</span>
-          </div>
-          <div class="portfolio-card__header">
-            <span class="portfolio-card__tag">LINE Bot</span>
-            <span class="portfolio-card__tag portfolio-card__tag--accent">餐飲版</span>
-          </div>
-          <h3>LINE Bot 餐廳版</h3>
-          <p>完整餐廳客服機器人：帶位登記、公告發送、優惠券回饋系統、AI 圖片辨識 POS、成本分析報表。一套系統搞定前台到後台。</p>
-          <div class="portfolio-card__features">
-            <span>帶位登記</span>
-            <span>優惠券系統</span>
-            <span>AI 圖片辨識</span>
-            <span>Google Sheet</span>
-          </div>
-          <a href="https://github.com/aoceanman-source/OpenMind/tree/main/line-bot-restaurant" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
         </article>
 
         <!-- 3. 電商爬蟲 -->
@@ -433,38 +459,6 @@
             <span>LINE 通知</span>
             <span>Python + Playwright</span>
           </div>
-          <a href="https://github.com/aoceanman-source/OpenMind/tree/main/ecommerce-scraper" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
-        </article>
-
-        <!-- 4. AI 工作流程引擎 -->
-        <article class="portfolio-card" data-cat="crawler">
-          <div class="portfolio-card__mockup mock-bg-auto">
-            <div class="mock-win">
-              <div class="mock-bar">
-                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
-                <span class="mock-url-bar">workflow-engine · 任務佇列</span>
-              </div>
-              <div class="mock-body">
-                <div class="t-row"><span class="t-ps">[09:01]</span><span class="t-out">Webhook 觸發 → 新表單提交</span></div>
-                <div class="t-row"><span class="t-ps">[09:01]</span><span class="t-ok">AI 分流 → 路由至「報價流程」</span></div>
-                <div class="t-row"><span class="t-ps">[09:01]</span><span class="t-out">Email 已寄出 ✓  LINE 已通知 ✓</span></div>
-                <div class="t-row"><span class="t-ps">[09:02]</span><span class="t-ok">任務完成，耗時 1.2s ✅</span></div>
-              </div>
-            </div>
-            <span class="mock-result">AI 決策節點</span>
-          </div>
-          <div class="portfolio-card__header">
-            <span class="portfolio-card__tag">自動化</span>
-          </div>
-          <h3>AI 工作流程引擎</h3>
-          <p>多流程串聯自動化系統，支援 Webhook / LINE / Email 觸發。Gemini AI 智能分流，視覺化流程設定，即時任務狀態追蹤。</p>
-          <div class="portfolio-card__features">
-            <span>視覺化流程設定</span>
-            <span>AI 決策節點</span>
-            <span>任務隊列管理</span>
-            <span>多觸發支援</span>
-          </div>
-          <a href="https://github.com/aoceanman-source/OpenMind/tree/main/ai-workflow-automation" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
         </article>
 
         <!-- 5. 網站 AI 聊天 Widget -->
@@ -495,40 +489,6 @@
             <span>訪客資料收集</span>
             <span>對話紀錄匯出</span>
           </div>
-          <a href="https://github.com/aoceanman-source/OpenMind/tree/main/website-chatbot-widget" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
-        </article>
-
-        <!-- 6. 落地頁模板 -->
-        <article class="portfolio-card" data-cat="web">
-          <div class="portfolio-card__mockup mock-bg-web">
-            <div class="mock-win">
-              <div class="mock-bar">
-                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
-                <span class="mock-url-bar">landing-template · 餐廳版預覽</span>
-              </div>
-              <div class="mock-body" style="padding:6px 8px;">
-                <div style="height:14px;background:#888;border-radius:2px;margin-bottom:5px;display:flex;align-items:center;padding:0 5px;"><span style="font-size:.48rem;color:#fff;letter-spacing:.5px;">🍜 山田拉麵｜台北信義店</span></div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px;">
-                  <div style="height:28px;background:rgba(255,255,255,.06);border-radius:2px;"></div>
-                  <div style="height:28px;background:rgba(255,255,255,.1);border-radius:2px;"></div>
-                </div>
-                <div style="height:10px;background:rgba(255,255,255,.06);border-radius:2px;"></div>
-              </div>
-            </div>
-            <span class="mock-result">多種風格</span>
-          </div>
-          <div class="portfolio-card__header">
-            <span class="portfolio-card__tag">網站模板</span>
-          </div>
-          <h3>落地頁 / 形象官網模板</h3>
-          <p>響應式網站模板，包含餐廳版、工作室版，RWD 手機電腦完美顯示，聯絡表單整合，無需後端即可部署。</p>
-          <div class="portfolio-card__features">
-            <span>RWD 響應式</span>
-            <span>HTML/CSS/JS</span>
-            <span>多種風格</span>
-            <span>無需後端</span>
-          </div>
-          <a href="https://github.com/aoceanman-source/OpenMind/tree/main/landing-page-template" class="portfolio-card__link" target="_blank" rel="noopener">看程式碼 →</a>
         </article>
 
       </div>
@@ -603,7 +563,7 @@
   <!-- ─── CONTACT ─── -->
   <section class="contact" id="contact">
     <div class="contact__img-panel">
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="辦公室" />
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=85" alt="辦公室" />
     </div>
     <div class="contact__right">
       <div class="contact__copy">
@@ -666,3 +626,4 @@
   </script>
 </body>
 </html>
+
