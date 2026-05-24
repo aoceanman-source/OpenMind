@@ -421,17 +421,64 @@
 
         <!-- 3. 電商爬蟲 -->
         <article class="portfolio-card" data-cat="crawler">
-          <div class="portfolio-card__mockup mock-bg-crawler">
-            <div class="mock-win">
-              <div class="mock-bar">
+          <div class="portfolio-card__mockup mock-bg-crawler" style="background:#1d6f42;">
+            <div class="mock-win" style="width:92%;">
+              <div class="mock-bar" style="background:#1d6f42; border-bottom:1px solid rgba(255,255,255,0.15);">
                 <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
-                <span class="mock-url-bar">price-monitor · 今日報表</span>
+                <span class="mock-url-bar" style="color:rgba(255,255,255,0.6);">競品價格報表_2026.xlsx</span>
               </div>
-              <div class="mock-body">
-                <div class="tbl-row hd"><span>商品</span><span>昨日</span><span>今日</span></div>
-                <div class="tbl-row"><span class="tbl-cell">無線耳機 A</span><span class="tbl-cell">$1,290</span><span class="tbl-cell dn">↓ $1,190</span></div>
-                <div class="tbl-row"><span class="tbl-cell">藍芽喇叭 B</span><span class="tbl-cell">$890</span><span class="tbl-cell up">↑ $990</span></div>
-                <div class="tbl-row"><span class="tbl-cell">智慧手錶 C</span><span class="tbl-cell">$3,500</span><span class="tbl-cell dn">↓ $3,200</span></div>
+              <div style="background:#fff;">
+                <!-- Excel 工具列 -->
+                <div style="background:#217346; padding:3px 6px; display:flex; gap:8px; align-items:center;">
+                  <span style="font-size:.45rem; color:#fff; opacity:.9;">檔案</span>
+                  <span style="font-size:.45rem; color:#fff; opacity:.9;">常用</span>
+                  <span style="font-size:.45rem; color:#fff; opacity:.9;">插入</span>
+                  <span style="font-size:.45rem; color:#fff; font-weight:bold;">資料</span>
+                </div>
+                <!-- 欄位標題列 -->
+                <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; font-size:.48rem; font-family:'DM Mono',monospace;">
+                  <div style="background:#217346; color:#fff; padding:3px 5px; font-weight:bold; border:1px solid #1a5c38;">商品名稱</div>
+                  <div style="background:#217346; color:#fff; padding:3px 5px; font-weight:bold; border:1px solid #1a5c38; text-align:center;">蝦皮</div>
+                  <div style="background:#217346; color:#fff; padding:3px 5px; font-weight:bold; border:1px solid #1a5c38; text-align:center;">Momo</div>
+                  <div style="background:#217346; color:#fff; padding:3px 5px; font-weight:bold; border:1px solid #1a5c38; text-align:center;">PChome</div>
+                  <div style="background:#217346; color:#fff; padding:3px 5px; font-weight:bold; border:1px solid #1a5c38; text-align:center;">漲跌</div>
+                </div>
+                <!-- 資料列 1 -->
+                <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; font-size:.46rem; font-family:'DM Mono',monospace;">
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; background:#fff;">無線耳機 Pro</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#fff;">1,290</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#fff;">1,350</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#fff;">1,280</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#ffebeb; color:#c00000; font-weight:bold;">↓ 10</div>
+                </div>
+                <!-- 資料列 2 -->
+                <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; font-size:.46rem; font-family:'DM Mono',monospace;">
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; background:#f2f2f2;">藍芽喇叭 X3</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#f2f2f2;">890</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#f2f2f2;">920</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#f2f2f2;">899</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#e2efda; color:#375623; font-weight:bold;">↑ 30</div>
+                </div>
+                <!-- 資料列 3 -->
+                <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; font-size:.46rem; font-family:'DM Mono',monospace;">
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; background:#fff;">智慧手錶 S2</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#fff;">3,500</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#fff;">3,480</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#fff;">3,520</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#ffebeb; color:#c00000; font-weight:bold;">↓ 20</div>
+                </div>
+                <!-- 資料列 4 -->
+                <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; font-size:.46rem; font-family:'DM Mono',monospace;">
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; background:#f2f2f2;">充電器 65W</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#f2f2f2;">299</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#f2f2f2;">299</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#f2f2f2;">310</div>
+                  <div style="padding:3px 5px; border:1px solid #d0d0d0; text-align:right; background:#fff8e1; color:#7d5a00; font-weight:bold;">— 0</div>
+                </div>
+                <!-- 底部更新時間 -->
+                <div style="background:#e8f5e2; padding:3px 6px; font-size:.42rem; color:#1d6f42; font-family:'DM Mono',monospace; border-top:1px solid #c6e0b4;">
+                  ✓ 自動更新：2026/05/24 09:00 · 蝦皮 / Momo / PChome / 露天 / Yahoo / 酷澎
+                </div>
               </div>
             </div>
             <span class="mock-result">6 平台同步</span>
