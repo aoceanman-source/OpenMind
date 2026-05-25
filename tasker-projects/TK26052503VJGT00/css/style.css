@@ -920,6 +920,96 @@ a.contact__item-value:hover { color: var(--green-accent); }
   .br-desktop { display: none; }
 }
 
+/* ─── NOTICE STRIP: LINE button ─── */
+.notice-strip__line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #06C755;
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-left: 12px;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.notice-strip__line:hover { background: #05a847; transform: translateY(-1px); }
+
+/* ─── PRICING NOTE ─── */
+.pricing-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--green-pale);
+  border: 1px solid rgba(82,183,136,0.4);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-top: 48px;
+}
+.pricing-note__icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+.pricing-note__content strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+.pricing-note__content p {
+  font-size: 0.875rem;
+  color: var(--gray-dark);
+  line-height: 1.7;
+}
+.pricing-note__content em {
+  color: var(--green-mid);
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* ─── CONTACT: LINE button ─── */
+.contact__line-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #06C755;
+  color: var(--white) !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 18px;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.contact__line-btn:hover { background: #05a847; transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+/* ─── GOOGLE MAPS PLACEHOLDER ─── */
+.contact__map {
+  margin-top: 28px;
+}
+.map-placeholder {
+  background: var(--gray-light);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--gray-mid);
+  text-align: center;
+}
+.map-placeholder span { font-size: 2rem; }
+.map-placeholder p { font-size: 0.85rem; line-height: 1.5; }
+.map-placeholder small { font-size: 0.75rem; color: var(--border); }
+/* 真實 iframe 樣式 */
+.contact__map iframe {
+  width: 100%;
+  height: 200px;
+  border: 0;
+  border-radius: var(--radius);
+  display: block;
+}
+
 /* ─── OVERLAY for mobile menu ─── */
 .nav-overlay {
   display: none;
