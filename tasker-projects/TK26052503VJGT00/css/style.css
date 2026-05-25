@@ -2,29 +2,29 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Color Palette – Environmental / Industrial */
-  --green-dark:   #1a3d2b;
-  --green-mid:    #2d6a4f;
-  --green-light:  #40916c;
-  --green-accent: #52b788;
-  --green-pale:   #d8f3dc;
-  --amber:        #f4a261;
-  --amber-dark:   #e76f51;
+  /* Color Palette – Professional Industrial Navy + Orange */
+  --green-dark:   #0d1f3c;   /* deep navy */
+  --green-mid:    #1a3a6e;   /* navy blue */
+  --green-light:  #1e4fa3;   /* bright navy */
+  --green-accent: #f97316;   /* orange — 主要強調色 */
+  --green-pale:   #fff3e6;   /* pale orange */
+  --amber:        #3b82f6;   /* sky blue — 次要強調 */
+  --amber-dark:   #2563eb;   /* blue */
   --white:        #ffffff;
-  --cream:        #f8faf8;
-  --gray-light:   #edf2ee;
-  --gray-mid:     #8a9e8e;
-  --gray-dark:    #4a5e4d;
-  --text:         #1e2e22;
-  --text-muted:   #6b8070;
-  --border:       #c8dece;
+  --cream:        #f8f9fc;
+  --gray-light:   #f1f5f9;
+  --gray-mid:     #94a3b8;
+  --gray-dark:    #475569;
+  --text:         #1e293b;
+  --text-muted:   #64748b;
+  --border:       #e2e8f0;
 
   --font-sans:    'Noto Sans TC', sans-serif;
   --font-mono:    'DM Mono', monospace;
 
-  --shadow-sm:    0 2px 12px rgba(26,61,43,.08);
-  --shadow-md:    0 8px 40px rgba(26,61,43,.12);
-  --shadow-lg:    0 20px 60px rgba(26,61,43,.18);
+  --shadow-sm:    0 2px 12px rgba(13,31,60,.08);
+  --shadow-md:    0 8px 40px rgba(13,31,60,.12);
+  --shadow-lg:    0 20px 60px rgba(13,31,60,.18);
 
   --transition:   0.3s ease;
   --radius:       4px;
@@ -151,7 +151,7 @@ button { cursor: pointer; font-family: inherit; }
   transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
 }
 .navbar.scrolled {
-  background: rgba(26, 61, 43, 0.97);
+  background: rgba(13, 31, 60, 0.97);
   box-shadow: 0 2px 20px rgba(0,0,0,0.2);
   padding: 12px 0;
   backdrop-filter: blur(8px);
@@ -247,6 +247,7 @@ button { cursor: pointer; font-family: inherit; }
   display: flex;
   align-items: center;
   overflow: hidden;
+  background: var(--green-dark); /* fallback when image loads */
 }
 
 .hero__bg {
@@ -262,10 +263,10 @@ button { cursor: pointer; font-family: inherit; }
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(26, 61, 43, 0.88) 0%,
-    rgba(26, 61, 43, 0.65) 60%,
-    rgba(45, 106, 79, 0.5) 100%
+    100deg,
+    rgba(13, 31, 60, 0.82) 0%,
+    rgba(13, 31, 60, 0.55) 55%,
+    rgba(26, 58, 110, 0.30) 100%
   );
 }
 
@@ -280,9 +281,9 @@ button { cursor: pointer; font-family: inherit; }
 
 .hero__badge {
   display: inline-block;
-  background: rgba(82, 183, 136, 0.25);
-  border: 1px solid rgba(82, 183, 136, 0.5);
-  color: var(--green-pale);
+  background: rgba(249, 115, 22, 0.20);
+  border: 1px solid rgba(249, 115, 22, 0.50);
+  color: #ffd6aa;
   font-size: 0.8rem;
   letter-spacing: 0.15em;
   padding: 6px 16px;
@@ -409,7 +410,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 .service-card--featured {
   border-color: var(--green-accent);
-  background: linear-gradient(135deg, #f0fbf4, var(--cream));
+  background: linear-gradient(135deg, #fff3e6, var(--cream));
 }
 
 .service-card__badge {
@@ -498,7 +499,7 @@ button { cursor: pointer; font-family: inherit; }
 .why-us__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(26,61,43,0.95) 0%, rgba(26,61,43,0.88) 100%);
+  background: linear-gradient(135deg, rgba(13,31,60,0.95) 0%, rgba(13,31,60,0.88) 100%);
 }
 
 .why-us .container { position: relative; z-index: 2; }
@@ -768,7 +769,7 @@ a.contact__item-value:hover { color: var(--green-accent); }
 .form-group textarea:focus {
   border-color: var(--green-accent);
   background: var(--white);
-  box-shadow: 0 0 0 3px rgba(82,183,136,0.15);
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
 }
 .form-group textarea { resize: vertical; min-height: 100px; }
 
@@ -941,7 +942,7 @@ a.contact__item-value:hover { color: var(--green-accent); }
   align-items: flex-start;
   gap: 16px;
   background: var(--green-pale);
-  border: 1px solid rgba(82,183,136,0.4);
+  border: 1px solid rgba(249,115,22,0.4);
   border-radius: var(--radius);
   padding: 24px 28px;
   margin-top: 48px;
