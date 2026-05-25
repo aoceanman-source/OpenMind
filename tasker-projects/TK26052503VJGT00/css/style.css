@@ -680,9 +680,8 @@ button { cursor: pointer; font-family: inherit; }
 
 .contact__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  max-width: 680px;
 }
 
 .contact__info .section-title { color: var(--text); }
@@ -896,8 +895,7 @@ a.contact__item-value:hover { color: var(--green-accent); }
   .navbar__nav a { font-size: 1.1rem; }
   .navbar__burger { display: flex; z-index: 210; }
 
-  .about__inner,
-  .contact__inner { grid-template-columns: 1fr; gap: 40px; }
+  .about__inner { grid-template-columns: 1fr; gap: 40px; }
 
   .about__cert { position: static; margin-top: 16px; max-width: 100%; }
   .about__img > img { height: 320px; }

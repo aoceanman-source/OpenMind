@@ -74,35 +74,6 @@ const sectionObserver = new IntersectionObserver(entries => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
-/* ─── CONTACT FORM ─── */
-const form = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Simple client-side validation
-    const name  = form.querySelector('#name').value.trim();
-    const phone = form.querySelector('#phone').value.trim();
-
-    if (!name || !phone) {
-      alert('請填寫姓名與電話。');
-      return;
-    }
-
-    // Simulate form submission (replace with actual endpoint)
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = '送出中…';
-    btn.disabled = true;
-
-    setTimeout(() => {
-      form.style.display = 'none';
-      formSuccess.style.display = 'block';
-    }, 800);
-  });
-}
-
 /* ─── HERO PARALLAX (subtle) ─── */
 const heroBg = document.querySelector('.hero__bg img');
 if (heroBg) {
