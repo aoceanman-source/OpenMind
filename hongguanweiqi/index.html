@@ -140,17 +140,46 @@
       justify-content: space-between;
       gap: 16px;
     }
-    /* Logo */
+    /* Logo — HTML/CSS 版本（精確定位） */
     .nav__logo {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1px;
       flex-shrink: 0;
+      text-decoration: none;
     }
-    .nav__logo-svg {
-      height: 40px;
-      width: auto;
+    .logo-mark {
+      display: flex;
+      align-items: baseline;
+      font-family: 'Noto Sans TC', 'Arial Black', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
       color: var(--blue-600);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .logo-o-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    /* 圍棋棋子：在 O 右下角 */
+    .logo-stone {
+      position: absolute;
+      bottom: -3px;
+      right: -9px;
+      width: 13px;
+      height: 13px;
+      background: var(--blue-600);
+      border-radius: 50%;
+    }
+    .logo-sub {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      color: var(--blue-600);
+      opacity: 0.75;
     }
 
     /* Links */
@@ -1214,7 +1243,25 @@
       gap: 16px;
     }
     .footer-left { display: flex; flex-direction: column; gap: 6px; }
-    .footer-logo { height: 28px; width: auto; color: rgba(255,255,255,0.7); }
+    /* Footer logo HTML 版 */
+    .footer-logo-wrap { display: flex; flex-direction: column; gap: 1px; }
+    .footer-logo-mark {
+      display: flex; align-items: baseline;
+      font-family: 'Noto Sans TC','Arial Black',sans-serif;
+      font-size: 1.5rem; font-weight: 900;
+      color: rgba(255,255,255,0.85);
+      line-height: 1; letter-spacing: -0.02em;
+    }
+    .footer-logo-stone {
+      position: absolute; bottom: -2px; right: -7px;
+      width: 10px; height: 10px;
+      background: rgba(255,255,255,0.85); border-radius: 50%;
+    }
+    .footer-logo-sub {
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.45);
+    }
     .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
     .footer-social { display: flex; gap: 8px; }
     .footer-social-link {
@@ -1317,12 +1364,10 @@
     <div class="container nav__inner">
 
       <a href="#" class="nav__logo" aria-label="宏觀圍棋首頁">
-        <svg class="nav__logo-svg" viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HGGO 基隆宏觀圍棋">
-          <text x="2" y="44" font-family="'Noto Sans TC','Arial Black',sans-serif" font-size="43" font-weight="900" fill="currentColor" letter-spacing="-0.5">HGGO</text>
-          <!-- 棋子：疊在 O 右下角，小圓 -->
-          <circle cx="116" cy="40" r="10" fill="currentColor"/>
-          <text x="2" y="57" font-family="'Noto Sans TC',sans-serif" font-size="11" font-weight="500" fill="currentColor" letter-spacing="2.5" opacity="0.75">基隆宏觀圍棋</text>
-        </svg>
+        <div class="logo-mark" aria-hidden="true">
+          HGG<span class="logo-o-wrap">O<span class="logo-stone"></span></span>
+        </div>
+        <div class="logo-sub">基隆宏觀圍棋</div>
       </a>
 
       <nav class="nav__links">
@@ -1809,11 +1854,12 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-left">
-        <svg class="footer-logo" viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HGGO 基隆宏觀圍棋">
-          <text x="2" y="44" font-family="'Noto Sans TC','Arial Black',sans-serif" font-size="43" font-weight="900" fill="currentColor" letter-spacing="-0.5">HGGO</text>
-          <circle cx="116" cy="40" r="10" fill="currentColor" opacity="0.85"/>
-          <text x="2" y="57" font-family="'Noto Sans TC',sans-serif" font-size="11" font-weight="500" fill="currentColor" letter-spacing="2.5" opacity="0.65">基隆宏觀圍棋</text>
-        </svg>
+        <div class="footer-logo-wrap" aria-label="HGGO 基隆宏觀圍棋">
+          <div class="footer-logo-mark">
+            HGG<span style="position:relative;display:inline-block;">O<span class="footer-logo-stone"></span></span>
+          </div>
+          <div class="footer-logo-sub">基隆宏觀圍棋</div>
+        </div>
         <span class="footer-copy">© 2025 基隆宏觀圍棋 版權所有｜基隆市信義區</span>
       </div>
       <div class="footer-social">
