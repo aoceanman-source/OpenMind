@@ -430,32 +430,47 @@
       transform: translateY(-2px);
     }
 
-    /* Hero 右側：CSS 圍棋棋盤 */
-    .hero__board-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .go-board {
+    /* Hero 右側：真實圍棋照片 */
+    .hero__photo-wrap {
       position: relative;
-      width: min(380px, 90vw);
-      height: min(380px, 90vw);
-      background: linear-gradient(135deg, #c8a96e 0%, #b89355 50%, #a0803f 100%);
-      border-radius: 8px;
+      border-radius: 20px;
+      overflow: hidden;
       box-shadow:
-        0 0 0 8px rgba(255,255,255,0.08),
-        0 20px 60px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.15);
+        0 0 0 4px rgba(255,255,255,0.12),
+        0 24px 64px rgba(0,0,0,0.45);
+      aspect-ratio: 4 / 3;
+      max-width: 520px;
+      width: 100%;
+      /* 橘色外框點綴 */
+      outline: 3px solid var(--orange);
+      outline-offset: 6px;
     }
 
-    /* 棋盤格線（用 SVG） */
-    .go-board__svg {
-      position: absolute;
-      inset: 0;
+    .hero__photo {
       width: 100%;
       height: 100%;
-      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .hero__photo-wrap:hover .hero__photo {
+      transform: scale(1.04);
+    }
+
+    /* 照片上方橘色標籤浮層 */
+    .hero__photo-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(14, 58, 186, 0.88);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.2);
+      letter-spacing: 0.05em;
     }
 
     /* ═══════════════════════════════════════
@@ -473,38 +488,49 @@
     }
 
     .highlight-card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-top: 4px solid var(--orange);
       border-radius: var(--radius);
-      padding: 36px 28px;
+      padding: 36px 28px 32px;
       text-align: center;
       color: var(--white);
       transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
     .highlight-card:hover {
-      background: rgba(255,255,255,0.14);
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
     }
 
-    .highlight-card__icon {
-      font-size: 2.8rem;
-      margin-bottom: 18px;
-      display: block;
+    /* 亮點圖示：橘色圓形背景 */
+    .highlight-card__icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+      box-shadow: 0 4px 16px rgba(245,166,35,0.4);
+      font-size: 2rem;
       line-height: 1;
     }
 
     .highlight-card__title {
-      font-size: 1.15rem;
-      font-weight: 700;
+      font-size: 1.18rem;
+      font-weight: 800;
       margin-bottom: 12px;
-      color: var(--orange);
+      color: var(--white);
+      line-height: 1.3;
     }
 
     .highlight-card__desc {
-      font-size: 0.9rem;
-      color: var(--light);
-      line-height: 1.75;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.8;
     }
 
     /* ═══════════════════════════════════════
@@ -1045,10 +1071,11 @@
       .hero__inner {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 48px;
+        gap: 40px;
       }
       .hero__actions { justify-content: center; }
-      .go-board { width: min(280px, 75vw); height: min(280px, 75vw); }
+      .hero__photo-wrap { max-width: 100%; aspect-ratio: 4/3; }
+      .hero__photo-badge { font-size: 0.78rem; }
 
       /* 品牌亮點 */
       .highlights__grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1182,89 +1209,19 @@
         </div>
       </div>
 
-      <!-- 右側：CSS 圍棋棋盤 -->
-      <div class="hero__board-wrap fade-in-right delay-2">
-        <div class="go-board" aria-label="圍棋棋盤示意圖">
-          <!-- 棋盤格線 SVG（9x9 示意，含棋子） -->
-          <svg class="go-board__svg" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
-            <!-- 棋盤木紋背景 -->
-            <defs>
-              <linearGradient id="boardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#c8a96e;stop-opacity:1" />
-                <stop offset="50%" style="stop-color:#b89355;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#a0803f;stop-opacity:1" />
-              </linearGradient>
-              <filter id="shadow-stone">
-                <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.4"/>
-              </filter>
-              <radialGradient id="blackStone" cx="35%" cy="30%">
-                <stop offset="0%" stop-color="#555"/>
-                <stop offset="100%" stop-color="#111"/>
-              </radialGradient>
-              <radialGradient id="whiteStone" cx="35%" cy="30%">
-                <stop offset="0%" stop-color="#fff"/>
-                <stop offset="100%" stop-color="#d0d0d0"/>
-              </radialGradient>
-            </defs>
-
-            <rect width="380" height="380" fill="url(#boardGrad)" rx="8"/>
-
-            <!-- 棋盤格線（9×9） -->
-            <!-- 橫線 -->
-            <g stroke="#6b4c1e" stroke-width="1.2" opacity="0.7">
-              <line x1="42" y1="42"  x2="338" y2="42"/>
-              <line x1="42" y1="79"  x2="338" y2="79"/>
-              <line x1="42" y1="116" x2="338" y2="116"/>
-              <line x1="42" y1="153" x2="338" y2="153"/>
-              <line x1="42" y1="190" x2="338" y2="190"/>
-              <line x1="42" y1="227" x2="338" y2="227"/>
-              <line x1="42" y1="264" x2="338" y2="264"/>
-              <line x1="42" y1="301" x2="338" y2="301"/>
-              <line x1="42" y1="338" x2="338" y2="338"/>
-              <!-- 直線 -->
-              <line x1="42"  y1="42" x2="42"  y2="338"/>
-              <line x1="79"  y1="42" x2="79"  y2="338"/>
-              <line x1="116" y1="42" x2="116" y2="338"/>
-              <line x1="153" y1="42" x2="153" y2="338"/>
-              <line x1="190" y1="42" x2="190" y2="338"/>
-              <line x1="227" y1="42" x2="227" y2="338"/>
-              <line x1="264" y1="42" x2="264" y2="338"/>
-              <line x1="301" y1="42" x2="301" y2="338"/>
-              <line x1="338" y1="42" x2="338" y2="338"/>
-            </g>
-
-            <!-- 星位點（天元＋4星） -->
-            <g fill="#6b4c1e" opacity="0.8">
-              <circle cx="190" cy="190" r="4"/>
-              <circle cx="116" cy="116" r="3"/>
-              <circle cx="264" cy="116" r="3"/>
-              <circle cx="116" cy="264" r="3"/>
-              <circle cx="264" cy="264" r="3"/>
-            </g>
-
-            <!-- 棋子 -->
-            <!-- 黑棋 -->
-            <circle cx="116" cy="79"  r="16" fill="url(#blackStone)" filter="url(#shadow-stone)"/>
-            <circle cx="153" cy="116" r="16" fill="url(#blackStone)" filter="url(#shadow-stone)"/>
-            <circle cx="190" cy="79"  r="16" fill="url(#blackStone)" filter="url(#shadow-stone)"/>
-            <circle cx="79"  cy="153" r="16" fill="url(#blackStone)" filter="url(#shadow-stone)"/>
-            <circle cx="264" cy="190" r="16" fill="url(#blackStone)" filter="url(#shadow-stone)"/>
-            <circle cx="227" cy="227" r="16" fill="url(#blackStone)" filter="url(#shadow-stone)"/>
-            <circle cx="190" cy="264" r="16" fill="url(#blackStone)" filter="url(#shadow-stone)"/>
-            <circle cx="301" cy="264" r="16" fill="url(#blackStone)" filter="url(#shadow-stone)"/>
-            <circle cx="338" cy="153" r="16" fill="url(#blackStone)" filter="url(#shadow-stone)"/>
-
-            <!-- 白棋 -->
-            <circle cx="79"  cy="116" r="16" fill="url(#whiteStone)" stroke="#bbb" stroke-width="0.5" filter="url(#shadow-stone)"/>
-            <circle cx="116" cy="153" r="16" fill="url(#whiteStone)" stroke="#bbb" stroke-width="0.5" filter="url(#shadow-stone)"/>
-            <circle cx="227" cy="116" r="16" fill="url(#whiteStone)" stroke="#bbb" stroke-width="0.5" filter="url(#shadow-stone)"/>
-            <circle cx="264" cy="153" r="16" fill="url(#whiteStone)" stroke="#bbb" stroke-width="0.5" filter="url(#shadow-stone)"/>
-            <circle cx="153" cy="227" r="16" fill="url(#whiteStone)" stroke="#bbb" stroke-width="0.5" filter="url(#shadow-stone)"/>
-            <circle cx="227" cy="264" r="16" fill="url(#whiteStone)" stroke="#bbb" stroke-width="0.5" filter="url(#shadow-stone)"/>
-            <circle cx="116" cy="301" r="16" fill="url(#whiteStone)" stroke="#bbb" stroke-width="0.5" filter="url(#shadow-stone)"/>
-            <circle cx="190" cy="338" r="16" fill="url(#whiteStone)" stroke="#bbb" stroke-width="0.5" filter="url(#shadow-stone)"/>
-            <circle cx="301" cy="227" r="16" fill="url(#whiteStone)" stroke="#bbb" stroke-width="0.5" filter="url(#shadow-stone)"/>
-          </svg>
+      <!-- 右側：真實圍棋照片（Unsplash 免費授權） -->
+      <div class="fade-in-right delay-2" style="display:flex;align-items:center;justify-content:center;">
+        <div class="hero__photo-wrap">
+          <!-- 主圖：圍棋棋盤實景照片（Unsplash by Unsplash Go Game collection） -->
+          <img
+            src="https://images.unsplash.com/photo-1606830733744-0ad9a1f9c1d1?w=800&q=85&auto=format&fit=crop"
+            alt="圍棋棋盤與棋子 - 基隆宏觀圍棋"
+            class="hero__photo"
+            loading="eager"
+            onerror="this.src='https://images.unsplash.com/photo-1611329828782-dae3ee70a4dd?w=800&q=85&auto=format&fit=crop'"
+          />
+          <!-- 照片下方浮動標籤 -->
+          <div class="hero__photo-badge">⚫⚪ 黑白之間，智慧無限</div>
         </div>
       </div>
     </div>
@@ -1278,21 +1235,21 @@
       <div class="highlights__grid">
 
         <div class="highlight-card fade-in delay-1">
-          <span class="highlight-card__icon">🏆</span>
+          <div class="highlight-card__icon-wrap">🏆</div>
           <h3 class="highlight-card__title">基隆在地第一品牌</h3>
-          <p class="highlight-card__desc">深耕基隆多年，培育無數棋才。在地口碑，值得信賴的圍棋教育夥伴。</p>
+          <p class="highlight-card__desc">深耕基隆多年，培育無數棋才。<br/>在地口碑，值得信賴的圍棋教育夥伴。</p>
         </div>
 
         <div class="highlight-card fade-in delay-2">
-          <span class="highlight-card__icon">👶</span>
+          <div class="highlight-card__icon-wrap">👧</div>
           <h3 class="highlight-card__title">適合 6 歲以上兒童</h3>
-          <p class="highlight-card__desc">趣味化教學方法，寓教於樂。讓孩子在歡笑中學習圍棋智慧，愛上思考。</p>
+          <p class="highlight-card__desc">趣味化教學方法，寓教於樂。<br/>讓孩子在歡笑中學習圍棋智慧，愛上思考。</p>
         </div>
 
         <div class="highlight-card fade-in delay-3">
-          <span class="highlight-card__icon">🎓</span>
+          <div class="highlight-card__icon-wrap">🎓</div>
           <h3 class="highlight-card__title">專業師資團隊</h3>
-          <p class="highlight-card__desc">系統化課程設計，循序漸進。從基礎入門到段位晉升，全程專業引導。</p>
+          <p class="highlight-card__desc">系統化課程設計，循序漸進。<br/>從基礎入門到段位晉升，全程專業引導。</p>
         </div>
 
       </div>
