@@ -253,46 +253,44 @@
     .line-float svg { width: 30px; height: 30px; }
 
     /* ═══════════════════════════
-       HERO
+       HERO — 全螢幕照片背景
     ═══════════════════════════ */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(140deg, var(--blue-900) 0%, var(--blue-800) 45%, var(--blue-700) 100%);
+      background-color: var(--blue-900);
+      background-image: url('https://images.pexels.com/photos/5967823/pexels-photo-5967823.jpeg?auto=compress&cs=tinysrgb&w=1920');
+      background-size: cover;
+      background-position: center 35%;
       display: flex;
       align-items: center;
-      padding: 120px 0 80px;
+      padding: 120px 0 100px;
       position: relative;
       overflow: hidden;
     }
-    /* 細點陣裝飾 */
+    /* 左側深色漸層（文字可讀性）*/
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 32px 32px;
+      background: linear-gradient(
+        105deg,
+        rgba(8,18,36,0.90) 0%,
+        rgba(8,18,36,0.72) 45%,
+        rgba(8,18,36,0.25) 75%,
+        rgba(8,18,36,0.08) 100%
+      );
+      z-index: 1;
+    }
+    /* 底部暗帶 */
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+      background: linear-gradient(to top, rgba(8,18,36,0.6) 0%, transparent 100%);
+      z-index: 1;
       pointer-events: none;
     }
-    /* 光暈 */
-    .hero__glow {
-      position: absolute; pointer-events: none;
-    }
-    .hero__glow--1 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 60%);
-      top: -200px; right: -100px;
-    }
-    .hero__glow--2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 60%);
-      bottom: -150px; left: -80px;
-    }
-
     .hero__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      position: relative; z-index: 1;
+      max-width: 640px;
+      position: relative; z-index: 2;
     }
 
     /* Hero left */
@@ -453,43 +451,16 @@
       pointer-events: none;
     }
 
-    /* 浮動資訊卡（照片上方） */
-    .hero__float-card {
+    /* 右下角標語 */
+    .hero__tagline {
       position: absolute;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(12px);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
-      box-shadow: var(--shadow-xl);
-      z-index: 10;
-    }
-    .hero__float-card--tl {
-      top: -16px; left: -16px;
-    }
-    .hero__float-card--br {
-      bottom: -16px; right: -16px;
-    }
-    .hero__float-card-label {
-      font-size: 0.7rem;
-      color: var(--gray-500);
-      font-weight: 500;
-      letter-spacing: 0.06em;
+      bottom: 36px; right: 40px;
+      z-index: 3;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-    .hero__float-card-value {
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--gray-900);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .hero__float-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #10b981;
-      flex-shrink: 0;
     }
 
 
@@ -1380,79 +1351,55 @@
        HERO
   ══════════════════════════ -->
   <section class="hero" id="hero">
-    <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
-    <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
     <div class="container hero__inner">
 
-      <!-- 左側：文字 -->
-      <div class="hero__text">
-        <div class="hero__badge reveal">
-          <span class="hero__badge-dot"></span>
-          基隆圍棋教學第一品牌
+      <div class="hero__badge reveal">
+        <span class="hero__badge-dot"></span>
+        基隆圍棋教學第一品牌
+      </div>
+
+      <h1 class="hero__title reveal delay-1">
+        圍棋的世界<br/>
+        <span class="hero__title-accent">終身學習 ＆ 策略思考</span>
+      </h1>
+
+      <p class="hero__desc reveal delay-2">
+        <strong>宏觀圍棋</strong>深耕基隆多年，以圍棋培養孩子的
+        <strong>專注力、邏輯思維與品格教育</strong>。<br/>
+        適合 6 歲以上，提供免費試聽體驗。
+      </p>
+
+      <div class="hero__actions reveal delay-3">
+        <a href="#contact" class="btn-hero-primary">
+          🎯 立即預約免費試聽
+        </a>
+        <a href="#courses" class="btn-hero-ghost">
+          瞭解課程 →
+        </a>
+      </div>
+
+      <div class="hero__stats reveal delay-4">
+        <div class="hero__stat">
+          <span class="hero__stat-num">10<em>+</em></span>
+          <span class="hero__stat-label">年教學經驗</span>
         </div>
-        <h1 class="hero__title reveal delay-1">
-          讓孩子<br/>
-          <span class="hero__title-accent">落子無悔，</span><br/>
-          智慧一生
-        </h1>
-        <p class="hero__desc reveal delay-2">
-          <strong>宏觀圍棋</strong>深耕基隆多年，以圍棋培養孩子的
-          <strong>專注力、邏輯思維與品格教育</strong>。
-          適合 6 歲以上，提供免費試聽體驗。
-        </p>
-        <div class="hero__actions reveal delay-3">
-          <a href="#contact" class="btn-hero-primary">
-            🎯 立即預約免費試聽
-          </a>
-          <a href="#courses" class="btn-hero-ghost">
-            瞭解課程 →
-          </a>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">500<em>+</em></span>
+          <span class="hero__stat-label">名學員培育</span>
         </div>
-        <div class="hero__stats reveal delay-4">
-          <div class="hero__stat">
-            <span class="hero__stat-num">10<em>+</em></span>
-            <span class="hero__stat-label">年教學經驗</span>
-          </div>
-          <div class="hero__stat-divider"></div>
-          <div class="hero__stat">
-            <span class="hero__stat-num">500<em>+</em></span>
-            <span class="hero__stat-label">名學員培育</span>
-          </div>
-          <div class="hero__stat-divider"></div>
-          <div class="hero__stat">
-            <span class="hero__stat-num">98<em>%</em></span>
-            <span class="hero__stat-label">家長滿意度</span>
-          </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">98<em>%</em></span>
+          <span class="hero__stat-label">家長滿意度</span>
         </div>
       </div>
 
-      <!-- 右側：照片卡 -->
-      <div class="hero__photo-card reveal-right delay-2">
-        <!-- 左上浮動卡 -->
-        <div class="hero__float-card hero__float-card--tl">
-          <p class="hero__float-card-label">招生狀態</p>
-          <p class="hero__float-card-value">
-            <span class="hero__float-dot"></span>
-            名額開放中
-          </p>
-        </div>
+    </div>
 
-        <div class="hero__photo-frame">
-          <img
-            src="https://images.unsplash.com/photo-1606830733744-0ad9a1f9c1d1?w=900&q=85&auto=format&fit=crop"
-            alt="圍棋棋盤 - 宏觀圍棋"
-            loading="eager"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1611329828782-dae3ee70a4dd?w=900&q=85&auto=format&fit=crop'"
-          />
-        </div>
-
-        <!-- 右下浮動卡 -->
-        <div class="hero__float-card hero__float-card--br">
-          <p class="hero__float-card-label">免費試聽</p>
-          <p class="hero__float-card-value">🎓 立即報名</p>
-        </div>
-      </div>
-
+    <!-- 右下角標語 -->
+    <div class="hero__tagline" aria-hidden="true">
+      GO &nbsp;·&nbsp; STRATEGY &nbsp;·&nbsp; MINDSET &nbsp;·&nbsp; TRADITION
     </div>
   </section>
 
