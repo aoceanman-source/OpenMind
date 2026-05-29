@@ -46,7 +46,17 @@
       gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
+    }
+    .portfolio__grid {
+      gap: 28px;
+    }
+    .portfolio-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .portfolio-card p {
+      flex: 1;
     }
     .filter-btn {
       font-size: .65rem;
@@ -71,8 +81,8 @@
 
     /* mockup 視窗（嵌入 portfolio-card 頂部） */
     .portfolio-card__mockup {
-      margin: -32px -32px 20px -32px;
-      height: 160px;
+      margin: -32px -32px 24px -32px;
+      height: 180px;
       overflow: hidden;
       background: #0d1117;
       display: flex;
@@ -186,7 +196,7 @@
       </a>
       <nav class="navbar__nav" id="navMenu" aria-label="主要導覽">
         <a href="#services">服務項目</a>
-        <a href="#portfolio">作品集</a>
+        <a href="portfolio.html">作品集</a>
         <a href="#why-me">為什麼選我</a>
         <a href="#about">關於我</a>
         <a href="#contact" class="btn btn--sm btn--primary">聯絡我</a>
@@ -378,6 +388,7 @@
       <p class="section-eyebrow">實作案例</p>
       <h2 class="section-title">這些功能<br /><span class="text-accent">做出來了</span></h2>
       <p class="portfolio__intro">每一個案例都是實際可運行的專案，不是 mockup，歡迎直接查看。</p>
+      <div style="text-align:center;margin-bottom:16px;"><a href="portfolio.html" class="btn btn--outline">查看完整作品集 →</a></div>
 
       <!-- 篩選器 -->
       <div class="portfolio__filters" role="group" aria-label="篩選作品類別">
@@ -554,6 +565,8 @@
             <span>LINE 導流</span>
             <span>訪客資料收集</span>
             <span>對話紀錄匯出</span>
+          </div>
+        </article>
 
         <article class="portfolio-card" data-cat="web">
           <div class="portfolio-card__mockup mock-bg-web">
@@ -794,7 +807,7 @@
       </div>
       <nav class="footer__links" aria-label="頁尾導覽">
         <a href="#services">服務項目</a>
-        <a href="#portfolio">作品集</a>
+        <a href="portfolio.html">作品集</a>
         <a href="#why-me">為什麼選我</a>
         <a href="#about">關於我</a>
         <a href="#contact">免費諮詢</a>

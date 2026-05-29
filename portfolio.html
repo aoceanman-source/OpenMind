@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>實作案例｜OpenMind Studio</title>
+  <meta name="description" content="OpenMind Studio 實作案例：LINE Bot AI 客服、電商競品爬蟲、網站 AI 聊天 Widget、餐廳官網、美容業官網等完整專案展示。" />
+  <link rel="canonical" href="https://aoceanman-source.github.io/OpenMind/portfolio.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Page Hero ── */
+    .page-hero {
+      padding: 140px 0 80px;
+      background: var(--black);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(100,200,150,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-hero .section-eyebrow { color: var(--accent, #5a8f6a); }
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: var(--white);
+      line-height: 1.15;
+      margin: 0.5rem 0 1.2rem;
+    }
+    .page-hero p {
+      color: rgba(255,255,255,0.55);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── Filter ── */
+    .pf-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 56px 0 40px;
+    }
+    .pf-btn {
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border: 1px solid var(--border, #d8d5cf);
+      background: transparent;
+      color: var(--text-muted, #888);
+      cursor: pointer;
+      transition: all .2s;
+      font-family: var(--font-sans);
+    }
+    .pf-btn:hover, .pf-btn.active {
+      background: var(--black, #111);
+      color: var(--white, #fff);
+      border-color: var(--black, #111);
+    }
+
+    /* ── Cases Grid ── */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2px;
+      margin-bottom: 80px;
+    }
+    .case-card {
+      background: var(--white, #fff);
+      border: 1px solid var(--border, #e8e5df);
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+    .case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.10);
+      z-index: 1;
+    }
+    .case-card.hidden { display: none; }
+
+    /* mockup 區 */
+    .case-card__mockup {
+      height: 240px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .mock-bg-linebot { background: linear-gradient(135deg,#071a0e,#0a2e18); }
+    .mock-bg-crawler { background: linear-gradient(135deg,#0d1117,#1a2744); }
+    .mock-bg-web     { background: linear-gradient(135deg,#0d1117,#1a1030); }
+    .mock-bg-auto    { background: linear-gradient(135deg,#0d1117,#1a2010); }
+    .mock-bg-restaurant { background: linear-gradient(135deg,#1a0a00,#2d1500); }
+    .mock-bg-beauty  { background: linear-gradient(135deg,#1a0010,#2d0020); }
+    .mock-bg-clinic  { background: linear-gradient(135deg,#001a2d,#002d4a); }
+    .mock-bg-dental  { background: linear-gradient(135deg,#0a1a15,#0d2e25); }
+
+    .mock-win {
+      width: 82%;
+      background: #161b22;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.08);
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.6);
+      font-family: 'DM Mono', monospace;
+    }
+    .mock-bar {
+      display: flex; align-items: center; gap: 5px;
+      padding: 6px 10px;
+      background: #21262d;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .m-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .m-dot.r { background: #ff5f56; }
+    .m-dot.y { background: #ffbd2e; }
+    .m-dot.g { background: #27c93f; }
+    .mock-url { flex:1; margin:0 8px; background:rgba(255,255,255,.05); border-radius:3px; font-size:.52rem; color:rgba(255,255,255,.35); padding:2px 7px; }
+    .mock-body { padding: 10px 12px; }
+    .t-row { display:flex; gap:6px; font-size:.6rem; line-height:1.9; }
+    .t-ps  { color:#7ee787; flex-shrink:0; }
+    .t-cmd { color:#e6edf3; }
+    .t-out { color:#58a6ff; padding-left:14px; }
+    .t-ok  { color:#7ee787; padding-left:14px; }
+    .t-dim { color:rgba(255,255,255,.3); padding-left:14px; }
+    .chat-row { display:flex; gap:6px; align-items:flex-end; margin-bottom:6px; }
+    .chat-row.right { justify-content:flex-end; }
+    .chat-av { width:18px; height:18px; border-radius:50%; background:#00b900; display:flex; align-items:center; justify-content:center; font-size:.55rem; flex-shrink:0; }
+    .bbl { max-width:75%; font-size:.58rem; padding:5px 8px; border-radius:10px; line-height:1.4; }
+    .bbl.bot  { background:#21262d; color:#e6edf3; border-bottom-left-radius:2px; }
+    .bbl.user { background:#00b900; color:#fff; border-bottom-right-radius:2px; }
+    .tbl-row { display:grid; grid-template-columns:2fr 1fr 1fr; gap:4px; font-size:.56rem; margin-bottom:4px; }
+    .tbl-row.hd { color:rgba(255,255,255,.35); border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:4px; margin-bottom:6px; }
+    .tbl-cell { color:#e6edf3; }
+    .tbl-cell.dn { color:#f85149; }
+    .tbl-cell.up { color:#7ee787; }
+    .mock-badge {
+      position:absolute; bottom:10px; right:12px;
+      font-family:'DM Mono',monospace; font-size:.56rem;
+      background:rgba(0,0,0,.75); border:1px solid rgba(255,255,255,.12);
+      color:#7ee787; padding:3px 9px; border-radius:3px;
+      backdrop-filter:blur(4px);
+    }
+    .mock-tag {
+      position:absolute; top:12px; left:12px;
+      font-family:'DM Mono',monospace; font-size:.52rem;
+      background:rgba(0,0,0,.6); border:1px solid rgba(255,255,255,.1);
+      color:rgba(255,255,255,.7); padding:2px 8px; border-radius:2px;
+    }
+
+    /* 卡片內容 */
+    .case-card__body { padding: 28px 28px 24px; flex: 1; display: flex; flex-direction: column; }
+    .case-card__meta { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+    .case-card__cat {
+      font-size:.6rem; letter-spacing:.12em; text-transform:uppercase;
+      font-family:var(--font-mono,'DM Mono',monospace);
+      background:var(--black,#111); color:var(--white,#fff);
+      padding:3px 10px; border-radius:2px;
+    }
+    .case-card__status {
+      font-size:.6rem; color:var(--text-muted,#888);
+      font-family:var(--font-mono,'DM Mono',monospace);
+    }
+    .case-card__status.live::before { content:'● '; color:#22c55e; }
+    .case-card h3 {
+      font-family:var(--font-serif,'Playfair Display',serif);
+      font-size:1.25rem; font-weight:700;
+      margin:0 0 12px; line-height:1.3;
+      color:var(--black,#111);
+    }
+    .case-card p {
+      font-size:.88rem; color:var(--text-muted,#666);
+      line-height:1.75; margin:0 0 20px; flex:1;
+    }
+
+    /* 細節區塊 */
+    .case-card__details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding: 18px;
+      background: var(--bg, #faf9f7);
+      border: 1px solid var(--border, #e8e5df);
+    }
+    .detail-item__label {
+      font-size:.6rem; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--text-muted,#999); font-family:var(--font-mono,'DM Mono',monospace);
+      margin-bottom:4px;
+    }
+    .detail-item__value {
+      font-size:.82rem; font-weight:500; color:var(--black,#111);
+    }
+
+    /* 技術標籤 */
+    .case-card__tech { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+    .case-card__tech span {
+      font-size:.6rem; padding:3px 9px;
+      border:1px solid var(--border,#ddd);
+      color:var(--text-muted,#777);
+      font-family:var(--font-mono,'DM Mono',monospace);
+    }
+
+    /* CTA */
+    .case-card__cta {
+      display:inline-block;
+      font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+      font-family:var(--font-mono,'DM Mono',monospace);
+      color:var(--black,#111);
+      border-bottom:1px solid var(--black,#111);
+      padding-bottom:1px;
+      text-decoration:none;
+      transition:opacity .2s;
+      margin-top:auto;
+    }
+    .case-card__cta:hover { opacity:.5; }
+
+    /* ── CTA 底部 ── */
+    .pf-cta-section {
+      text-align:center;
+      padding:80px 0 100px;
+      border-top:1px solid var(--border,#e8e5df);
+    }
+    .pf-cta-section h2 {
+      font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.8rem);
+      margin-bottom:1rem;
+    }
+    .pf-cta-section p { color:var(--text-muted,#777); margin-bottom:2rem; }
+
+    @media (max-width: 640px) {
+      .cases-grid { grid-template-columns: 1fr; gap: 0; }
+      .case-card__details { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVBAR ─── -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <span class="logo-text">OpenMind<span class="logo-accent"> Studio</span></span>
+      </a>
+      <nav class="navbar__nav" id="navMenu" aria-label="主要導覽">
+        <a href="index.html#services">服務項目</a>
+        <a href="portfolio.html" class="active">作品集</a>
+        <a href="index.html#why-me">為什麼選我</a>
+        <a href="index.html#about">關於我</a>
+        <a href="index.html#contact" class="btn btn--sm btn--primary">聯絡我</a>
+      </nav>
+      <button class="navbar__burger" id="navBurger" aria-label="開啟選單">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ─── PAGE HERO ─── -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">實作案例</p>
+      <h1>做出來的，<br />才算數。</h1>
+      <p>每一個案例都是實際可運行的專案，不是示意圖。從需求分析到上線，完整交付。</p>
+    </div>
+  </section>
+
+  <!-- ─── PORTFOLIO ─── -->
+  <section style="background:var(--bg,#faf9f7);">
+    <div class="container">
+
+      <!-- 篩選器 -->
+      <div class="pf-filters" role="group" aria-label="篩選作品類別">
+        <button class="pf-btn active" data-filter="all">全部</button>
+        <button class="pf-btn" data-filter="linebot">LINE Bot</button>
+        <button class="pf-btn" data-filter="crawler">爬蟲自動化</button>
+        <button class="pf-btn" data-filter="web">網站開發</button>
+      </div>
+
+      <div class="cases-grid">
+
+        <!-- ── 1. LINE Bot AI 客服 ── -->
+        <article class="case-card" data-cat="linebot">
+          <div class="case-card__mockup mock-bg-linebot">
+            <span class="mock-tag">LINE Bot</span>
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url">line.me · AI 客服系統</span>
+              </div>
+              <div class="mock-body">
+                <div class="chat-row"><div class="chat-av">🟢</div><div class="bbl bot">您好！請問有什麼需要協助的？</div></div>
+                <div class="chat-row right"><div class="bbl user">請問今天還有空嗎？</div></div>
+                <div class="chat-row"><div class="chat-av">🟢</div><div class="bbl bot">📅 有的！以下時段可預約：<br>10:00 / 14:00 / 16:30</div></div>
+                <div class="chat-row right"><div class="bbl user">14:00 好</div></div>
+                <div class="chat-row"><div class="chat-av">🟢</div><div class="bbl bot">✅ 已為您預約 14:00，稍後會收到確認訊息！</div></div>
+              </div>
+            </div>
+            <span class="mock-badge">✓ 上線中</span>
+          </div>
+          <div class="case-card__body">
+            <div class="case-card__meta">
+              <span class="case-card__cat">LINE Bot</span>
+              <span class="case-card__status live">線上運行</span>
+            </div>
+            <h3>LINE Bot AI 客服系統</h3>
+            <p>整合 RAG 知識庫的智能客服機器人，能準確回答常見問題、引導預約、收集潛在客戶資料。超出知識範圍時自動轉真人，確保不漏接任何詢問。</p>
+            <div class="case-card__details">
+              <div class="detail-item">
+                <div class="detail-item__label">回答準確率</div>
+                <div class="detail-item__value">↑ 80%</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">客服回應時間</div>
+                <div class="detail-item__value">24 / 7 即時</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">導入效果</div>
+                <div class="detail-item__value">人工減少 60%</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">開發週期</div>
+                <div class="detail-item__value">7–14 天</div>
+              </div>
+            </div>
+            <div class="case-card__tech">
+              <span>LINE Messaging API</span><span>Gemini AI</span><span>RAG 知識庫</span><span>Python</span><span>Firebase</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── 2. 電商競品爬蟲 ── -->
+        <article class="case-card" data-cat="crawler">
+          <div class="case-card__mockup mock-bg-crawler">
+            <span class="mock-tag">爬蟲自動化</span>
+            <div class="mock-win" style="width:88%;">
+              <div class="mock-bar" style="background:#1d6f42;">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url" style="color:rgba(255,255,255,.5);">競品價格報表_2026.xlsx</span>
+              </div>
+              <div style="background:#fff;">
+                <div style="background:#217346;padding:3px 7px;display:flex;gap:10px;">
+                  <span style="font-size:.48rem;color:#fff;opacity:.8;">檔案</span>
+                  <span style="font-size:.48rem;color:#fff;font-weight:bold;">資料</span>
+                  <span style="font-size:.48rem;color:#fff;opacity:.8;">插入</span>
+                </div>
+                <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;font-size:.5rem;font-family:'DM Mono',monospace;">
+                  <div style="background:#217346;color:#fff;padding:3px 5px;font-weight:bold;border:1px solid #1a5c38;">商品名稱</div>
+                  <div style="background:#217346;color:#fff;padding:3px 5px;text-align:center;border:1px solid #1a5c38;">蝦皮</div>
+                  <div style="background:#217346;color:#fff;padding:3px 5px;text-align:center;border:1px solid #1a5c38;">Momo</div>
+                  <div style="background:#217346;color:#fff;padding:3px 5px;text-align:center;border:1px solid #1a5c38;">PChome</div>
+                  <div style="background:#217346;color:#fff;padding:3px 5px;text-align:center;border:1px solid #1a5c38;">漲跌</div>
+                </div>
+                <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;font-size:.48rem;font-family:'DM Mono',monospace;">
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;">無線耳機 Pro</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;">1,290</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;">1,350</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;">1,280</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;background:#ffebeb;color:#c00000;font-weight:bold;">↓ 10</div>
+                </div>
+                <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;font-size:.48rem;font-family:'DM Mono',monospace;background:#f9f9f9;">
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;">藍芽喇叭 X3</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;">890</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;">920</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;">899</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;background:#e2efda;color:#375623;font-weight:bold;">↑ 30</div>
+                </div>
+                <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;font-size:.48rem;font-family:'DM Mono',monospace;">
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;">智慧手錶 S2</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;">3,500</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;">3,480</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;">3,520</div>
+                  <div style="padding:3px 5px;border:1px solid #d0d0d0;text-align:right;background:#ffebeb;color:#c00000;font-weight:bold;">↓ 20</div>
+                </div>
+                <div style="background:#e8f5e2;padding:3px 7px;font-size:.44rem;color:#1d6f42;font-family:'DM Mono',monospace;border-top:1px solid #c6e0b4;">
+                  ✓ 自動更新：2026/05/29 09:00 · 蝦皮 / Momo / PChome / 露天 / Yahoo / 酷澎
+                </div>
+              </div>
+            </div>
+            <span class="mock-badge">6 平台同步</span>
+          </div>
+          <div class="case-card__body">
+            <div class="case-card__meta">
+              <span class="case-card__cat">爬蟲自動化</span>
+              <span class="case-card__status live">排程運行中</span>
+            </div>
+            <h3>電商競品查價爬蟲</h3>
+            <p>同時監控蝦皮、Momo、PChome、露天、Yahoo、酷澎 6 大平台。價格一有變動立即推送 LINE / Email 通知，每日自動排程，完全不需人工介入。</p>
+            <div class="case-card__details">
+              <div class="detail-item">
+                <div class="detail-item__label">監控平台數</div>
+                <div class="detail-item__value">6 大平台</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">每日省下時間</div>
+                <div class="detail-item__value">1–2 小時</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">通知方式</div>
+                <div class="detail-item__value">LINE / Email</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">開發週期</div>
+                <div class="detail-item__value">5–10 天</div>
+              </div>
+            </div>
+            <div class="case-card__tech">
+              <span>Python</span><span>Playwright</span><span>BeautifulSoup</span><span>Google Sheets API</span><span>LINE Notify</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── 3. 網站 AI 聊天 Widget ── -->
+        <article class="case-card" data-cat="web">
+          <div class="case-card__mockup mock-bg-web" style="background:#f0f2f5;padding:0;">
+            <span class="mock-tag" style="z-index:2;">網站元件</span>
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;">
+              <div style="background:#2d2d2d;padding:6px 10px;display:flex;align-items:center;gap:5px;flex-shrink:0;">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <div style="flex:1;margin:0 8px;background:rgba(255,255,255,0.1);border-radius:3px;font-size:.48rem;color:rgba(255,255,255,.4);padding:2px 7px;font-family:'DM Mono',monospace;">yoursite.com</div>
+              </div>
+              <div style="flex:1;background:#fff;position:relative;overflow:hidden;padding:12px;">
+                <div style="background:#2563eb;height:30px;border-radius:3px;margin-bottom:10px;display:flex;align-items:center;padding:0 10px;">
+                  <span style="font-size:.5rem;color:#fff;font-weight:bold;">MyShop 官網</span>
+                  <div style="margin-left:auto;display:flex;gap:8px;">
+                    <span style="font-size:.44rem;color:rgba(255,255,255,.7);">首頁</span>
+                    <span style="font-size:.44rem;color:rgba(255,255,255,.7);">商品</span>
+                    <span style="font-size:.44rem;color:rgba(255,255,255,.7);">聯絡</span>
+                  </div>
+                </div>
+                <div style="background:#f8f9fa;height:40px;border-radius:3px;margin-bottom:8px;"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                  <div style="background:#f0f0f0;height:28px;border-radius:2px;"></div>
+                  <div style="background:#f0f0f0;height:28px;border-radius:2px;"></div>
+                </div>
+                <div style="background:#f0f0f0;height:16px;border-radius:2px;margin-bottom:5px;width:75%;"></div>
+                <div style="background:#f0f0f0;height:16px;border-radius:2px;width:55%;"></div>
+                <div style="position:absolute;bottom:10px;right:10px;display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+                  <div style="background:#fff;border-radius:12px 12px 2px 12px;box-shadow:0 4px 20px rgba(0,0,0,0.15);padding:8px 10px;max-width:120px;border:1px solid #e5e7eb;">
+                    <div style="font-size:.48rem;color:#111;font-weight:600;margin-bottom:3px;">👋 你好！</div>
+                    <div style="font-size:.42rem;color:#555;line-height:1.4;">有任何問題都可以問我 😊</div>
+                    <div style="margin-top:5px;background:#2563eb;border-radius:4px;padding:2px 6px;display:inline-block;">
+                      <span style="font-size:.4rem;color:#fff;">立即諮詢 →</span>
+                    </div>
+                  </div>
+                  <div style="width:36px;height:36px;background:#2563eb;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,99,235,0.5);">
+                    <span style="font-size:.9rem;">💬</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="mock-badge">一行嵌入</span>
+          </div>
+          <div class="case-card__body">
+            <div class="case-card__meta">
+              <span class="case-card__cat">網站元件</span>
+              <span class="case-card__status live">可嵌入部署</span>
+            </div>
+            <h3>網站 AI 聊天 Widget</h3>
+            <p>一行程式碼嵌入任何網站的 AI 聊天窗口。Gemini 即時回覆、自動收集訪客資料、對話紀錄可匯出分析，適用各種行業官網。</p>
+            <div class="case-card__details">
+              <div class="detail-item">
+                <div class="detail-item__label">嵌入方式</div>
+                <div class="detail-item__value">一行程式碼</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">AI 引擎</div>
+                <div class="detail-item__value">Gemini Pro</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">資料收集</div>
+                <div class="detail-item__value">自動匯出</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">開發週期</div>
+                <div class="detail-item__value">3–7 天</div>
+              </div>
+            </div>
+            <div class="case-card__tech">
+              <span>JavaScript</span><span>Gemini API</span><span>Firebase</span><span>LINE 導流</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── 4. 餐廳官網 ── -->
+        <article class="case-card" data-cat="web">
+          <div class="case-card__mockup mock-bg-restaurant">
+            <span class="mock-tag">餐廳官網</span>
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url">restaurant.com · 菜單 / 訂位</span>
+              </div>
+              <div class="mock-body">
+                <div class="t-row"><span class="t-ok">✓ 菜單展示 + 過敏原標籤</span></div>
+                <div class="t-row"><span class="t-ok">✓ 圖片輪播 + 聯絡表單</span></div>
+                <div class="t-row"><span class="t-ok">✓ Google Maps 整合</span></div>
+                <div class="t-row"><span class="t-out">LINE 諮詢 · RWD · 手機優化</span></div>
+              </div>
+            </div>
+            <span class="mock-badge">即時預覽</span>
+          </div>
+          <div class="case-card__body">
+            <div class="case-card__meta">
+              <span class="case-card__cat">網站開發</span>
+              <span class="case-card__status">餐飲業</span>
+            </div>
+            <h3>餐廳官網模板</h3>
+            <p>菜單展示含過敏原標籤、圖片輪播、線上訂位表單、Google Maps，整合 LINE 諮詢按鈕，全裝置完美適配。</p>
+            <div class="case-card__details">
+              <div class="detail-item">
+                <div class="detail-item__label">適用對象</div>
+                <div class="detail-item__value">餐廳 / 咖啡廳</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">特色功能</div>
+                <div class="detail-item__value">訂位表單</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">裝置支援</div>
+                <div class="detail-item__value">手機 / 電腦</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">開發週期</div>
+                <div class="detail-item__value">7–14 天</div>
+              </div>
+            </div>
+            <div class="case-card__tech">
+              <span>HTML / CSS</span><span>JavaScript</span><span>Google Maps API</span><span>RWD</span>
+            </div>
+            <a class="case-card__cta" href="https://aoceanman-source.github.io/website-templates/output/restaurant/" target="_blank" rel="noopener">查看展示頁 →</a>
+          </div>
+        </article>
+
+        <!-- ── 5. 美容業官網 ── -->
+        <article class="case-card" data-cat="web">
+          <div class="case-card__mockup mock-bg-beauty">
+            <span class="mock-tag">美容業官網</span>
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url">beauty.com · 預約 / 作品集</span>
+              </div>
+              <div class="mock-body">
+                <div class="t-row"><span class="t-ok">✓ 服務項目 + 線上預約表單</span></div>
+                <div class="t-row"><span class="t-ok">✓ 作品集展示 + 顧客評論</span></div>
+                <div class="t-row"><span class="t-ok">✓ Google Maps 整合</span></div>
+                <div class="t-row"><span class="t-out">LINE 諮詢 · RWD · 手機優化</span></div>
+              </div>
+            </div>
+            <span class="mock-badge">即時預覽</span>
+          </div>
+          <div class="case-card__body">
+            <div class="case-card__meta">
+              <span class="case-card__cat">網站開發</span>
+              <span class="case-card__status">美業 / 美容</span>
+            </div>
+            <h3>美容業官網模板</h3>
+            <p>服務項目展示、線上預約表單、作品集、顧客評論區塊，整合 LINE 諮詢與 Google Maps，讓客人一眼看見你的專業。</p>
+            <div class="case-card__details">
+              <div class="detail-item">
+                <div class="detail-item__label">適用對象</div>
+                <div class="detail-item__value">美甲 / 美睫 / 美容</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">特色功能</div>
+                <div class="detail-item__value">作品集 + 預約</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">裝置支援</div>
+                <div class="detail-item__value">手機 / 電腦</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">開發週期</div>
+                <div class="detail-item__value">7–14 天</div>
+              </div>
+            </div>
+            <div class="case-card__tech">
+              <span>HTML / CSS</span><span>JavaScript</span><span>預約表單</span><span>RWD</span>
+            </div>
+            <a class="case-card__cta" href="https://aoceanman-source.github.io/website-templates/output/beauty/" target="_blank" rel="noopener">查看展示頁 →</a>
+          </div>
+        </article>
+
+        <!-- ── 6. 診所官網 ── -->
+        <article class="case-card" data-cat="web">
+          <div class="case-card__mockup mock-bg-clinic">
+            <span class="mock-tag">診所官網</span>
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url">clinic.com · 門診 / 掛號</span>
+              </div>
+              <div class="mock-body">
+                <div class="t-row"><span class="t-ok">✓ 門診時間 + 醫師介紹</span></div>
+                <div class="t-row"><span class="t-ok">✓ 掛號連結 + 症狀分類</span></div>
+                <div class="t-row"><span class="t-ok">✓ Google Maps 整合</span></div>
+                <div class="t-row"><span class="t-out">LINE 諮詢 · RWD · 手機優化</span></div>
+              </div>
+            </div>
+            <span class="mock-badge">即時預覽</span>
+          </div>
+          <div class="case-card__body">
+            <div class="case-card__meta">
+              <span class="case-card__cat">網站開發</span>
+              <span class="case-card__status">醫療 / 診所</span>
+            </div>
+            <h3>診所官網模板</h3>
+            <p>門診時間表、醫師團隊介紹、線上掛號連結、症狀分類導引，整合 LINE 諮詢與 Google Maps，讓病患快速找到所需資訊。</p>
+            <div class="case-card__details">
+              <div class="detail-item">
+                <div class="detail-item__label">適用對象</div>
+                <div class="detail-item__value">診所 / 醫療院所</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">特色功能</div>
+                <div class="detail-item__value">掛號 + 醫師介紹</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">裝置支援</div>
+                <div class="detail-item__value">手機 / 電腦</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">開發週期</div>
+                <div class="detail-item__value">7–14 天</div>
+              </div>
+            </div>
+            <div class="case-card__tech">
+              <span>HTML / CSS</span><span>JavaScript</span><span>Google Maps API</span><span>RWD</span>
+            </div>
+            <a class="case-card__cta" href="https://aoceanman-source.github.io/website-templates/output/clinic/" target="_blank" rel="noopener">查看展示頁 →</a>
+          </div>
+        </article>
+
+        <!-- ── 7. 牙醫診所 ── -->
+        <article class="case-card" data-cat="web">
+          <div class="case-card__mockup mock-bg-dental">
+            <span class="mock-tag">牙醫診所</span>
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url">璞白牙醫 · 美學診所</span>
+              </div>
+              <div class="mock-body">
+                <div class="t-row"><span class="t-ok">✓ 莫蘭迪綠 × 科技藍設計</span></div>
+                <div class="t-row"><span class="t-ok">✓ 服務項目 + 醫師介紹</span></div>
+                <div class="t-row"><span class="t-ok">✓ 線上預約整合</span></div>
+                <div class="t-row"><span class="t-out">高端美學 · RWD · 手機優化</span></div>
+              </div>
+            </div>
+            <span class="mock-badge">即時預覽</span>
+          </div>
+          <div class="case-card__body">
+            <div class="case-card__meta">
+              <span class="case-card__cat">網站開發</span>
+              <span class="case-card__status">牙醫 / 美學</span>
+            </div>
+            <h3>牙醫美學診所官網</h3>
+            <p>高端一頁式牙醫診所行銷網頁，莫蘭迪綠 × 科技藍色系，服務項目、醫師介紹、線上預約與 LINE 諮詢一應俱全。</p>
+            <div class="case-card__details">
+              <div class="detail-item">
+                <div class="detail-item__label">設計風格</div>
+                <div class="detail-item__value">高端美學</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">特色功能</div>
+                <div class="detail-item__value">線上預約</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">裝置支援</div>
+                <div class="detail-item__value">手機 / 電腦</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">開發週期</div>
+                <div class="detail-item__value">10–14 天</div>
+              </div>
+            </div>
+            <div class="case-card__tech">
+              <span>HTML / CSS</span><span>JavaScript</span><span>客製設計</span><span>RWD</span>
+            </div>
+            <a class="case-card__cta" href="https://aoceanman-source.github.io/website-templates/output/dental/" target="_blank" rel="noopener">查看展示頁 →</a>
+          </div>
+        </article>
+
+        <!-- ── 8. 通用官網 ── -->
+        <article class="case-card" data-cat="web">
+          <div class="case-card__mockup mock-bg-web">
+            <span class="mock-tag">通用官網</span>
+            <div class="mock-win">
+              <div class="mock-bar">
+                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
+                <span class="mock-url">company.com · 公司 / 服務</span>
+              </div>
+              <div class="mock-body">
+                <div class="t-row"><span class="t-ok">✓ 公司介紹 + 服務項目</span></div>
+                <div class="t-row"><span class="t-ok">✓ 團隊介紹 + 聯絡方式</span></div>
+                <div class="t-row"><span class="t-ok">✓ 各行業適用</span></div>
+                <div class="t-row"><span class="t-out">LINE 諮詢 · RWD · 快速交付</span></div>
+              </div>
+            </div>
+            <span class="mock-badge">即時預覽</span>
+          </div>
+          <div class="case-card__body">
+            <div class="case-card__meta">
+              <span class="case-card__cat">網站開發</span>
+              <span class="case-card__status">各行各業</span>
+            </div>
+            <h3>通用官網模板</h3>
+            <p>基本公司頁面、服務項目介紹、團隊成員展示、聯絡方式，適用各行各業，整合 LINE 諮詢，快速建立品牌形象。</p>
+            <div class="case-card__details">
+              <div class="detail-item">
+                <div class="detail-item__label">適用對象</div>
+                <div class="detail-item__value">各行各業</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">特色功能</div>
+                <div class="detail-item__value">快速客製</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">裝置支援</div>
+                <div class="detail-item__value">手機 / 電腦</div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-item__label">開發週期</div>
+                <div class="detail-item__value">5–10 天</div>
+              </div>
+            </div>
+            <div class="case-card__tech">
+              <span>HTML / CSS</span><span>JavaScript</span><span>Google Maps API</span><span>RWD</span>
+            </div>
+            <a class="case-card__cta" href="https://aoceanman-source.github.io/website-templates/output/general/" target="_blank" rel="noopener">查看展示頁 →</a>
+          </div>
+        </article>
+
+      </div><!-- /cases-grid -->
+
+      <!-- CTA -->
+      <div class="pf-cta-section">
+        <h2>有你想做的項目？</h2>
+        <p>不用想好完整需求，把痛點說出來，我來幫你想解法。</p>
+        <a href="index.html#contact" class="btn btn--primary">免費諮詢 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="navbar__logo footer__logo">
+          <span class="logo-text">OpenMind<span class="logo-accent"> Studio</span></span>
+        </a>
+        <p>幫你省時間，讓你準時下班陪家人。</p>
+      </div>
+      <nav class="footer__links" aria-label="頁尾導覽">
+        <a href="index.html#services">服務項目</a>
+        <a href="portfolio.html">作品集</a>
+        <a href="index.html#why-me">為什麼選我</a>
+        <a href="index.html#about">關於我</a>
+        <a href="index.html#contact">免費諮詢</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 OpenMind Studio. 用技術幫你找回時間。</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // 篩選器
+    document.querySelectorAll('.pf-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.case-card').forEach(card => {
+          card.classList.toggle('hidden', filter !== 'all' && card.dataset.cat !== filter);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
