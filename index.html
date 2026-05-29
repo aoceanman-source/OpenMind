@@ -752,27 +752,39 @@
   <!-- ── AI 智能客服 Widget ── -->
   <style>
     #cb-btn {
-      position: fixed; bottom: 20px; right: 20px;
+      position: fixed; bottom: 12px; right: 16px;
       z-index: 2147483647;
-      width: 86px; height: 86px; border-radius: 50%;
-      background: #000;
-      border: 2.5px solid rgba(0,220,255,.6);
+      width: 80px;
+      background: transparent;
+      border: none;
       padding: 0; cursor: pointer;
-      box-shadow: 0 0 0 5px rgba(0,200,255,.12), 0 8px 28px rgba(0,150,255,.45);
-      overflow: hidden;
-      transition: transform .25s;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      transition: transform .22s;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.3));
     }
-    #cb-btn:hover { transform: scale(1.07); }
-    #cb-btn > img { width:100%; height:115%; object-fit:cover; object-position:center 10%; display:block; margin-top:-8%; pointer-events:none; }
+    #cb-btn:hover { transform: translateY(-3px); }
+    #cb-btn > img {
+      width: 80px; height: 80px;
+      object-fit: contain; object-position: center top;
+      display: block; pointer-events: none;
+    }
+    #cb-btn > span {
+      font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+      color: #fff; pointer-events: none; white-space: nowrap;
+      text-shadow: 0 1px 6px rgba(0,0,0,.7), 0 0 12px rgba(0,150,255,.6);
+      font-family: 'Noto Sans TC', sans-serif;
+      background: linear-gradient(135deg, rgba(26,111,168,.85), rgba(0,80,160,.85));
+      padding: 2px 8px; border-radius: 10px;
+    }
     #cb-badge {
-      position: fixed; bottom: 84px; right: 16px; z-index: 2147483647;
+      position: fixed; bottom: 90px; right: 14px; z-index: 2147483647;
       background: #f85149; color: #fff; font-size: .55rem; font-weight: 700;
-      width: 22px; height: 22px; border-radius: 50%;
+      width: 20px; height: 20px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-family: sans-serif; border: 2px solid #fff; pointer-events: none;
     }
     #cb-win {
-      position: fixed; bottom: 118px; right: 20px; z-index: 2147483646;
+      position: fixed; bottom: 130px; right: 16px; z-index: 2147483646;
       width: 360px; max-height: 560px;
       background: #f5f7fa; border: 1px solid #d0d8e4; border-radius: 16px;
       box-shadow: 0 20px 60px rgba(0,0,0,.25);
@@ -815,11 +827,12 @@
     .cb-send { width:38px; height:38px; border-radius:50%; background:#1a6fa8; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:.9rem; transition:background .2s,transform .15s; flex-shrink:0; }
     .cb-send:hover { background:#155a8a; transform:scale(1.08); }
     .cb-send:disabled { background:#c0c8d4; cursor:not-allowed; transform:none; }
-    @media(max-width:420px){#cb-win{width:calc(100vw - 24px);right:12px;bottom:90px;}#cb-btn{bottom:16px;right:16px;}#cb-badge{bottom:78px;right:12px;}}
+    @media(max-width:420px){#cb-win{width:calc(100vw - 24px);right:8px;bottom:110px;}#cb-btn{bottom:8px;right:8px;}#cb-badge{bottom:88px;right:8px;}}
   </style>
 
   <button id="cb-btn" onclick="cbToggle()" aria-label="開啟 AI 智能客服">
     <img src="img/chloe.png" alt="AI客服 Chloe" />
+    <span>智能客服</span>
   </button>
   <div id="cb-badge">AI</div>
 
