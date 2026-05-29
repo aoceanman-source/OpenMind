@@ -875,8 +875,8 @@
   </style>
 
   <!-- Toggle Button -->
-  <button id="cb-btn" aria-label="開啟智能客服" onclick="cbToggle()" style="position:fixed!important;bottom:28px!important;right:28px!important;z-index:2147483647!important;width:58px!important;height:58px!important;border-radius:50%!important;background:linear-gradient(135deg,#00B900,#009900)!important;border:none!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:1.5rem!important;cursor:pointer!important;box-shadow:0 4px 20px rgba(0,185,0,.45)!important;">
-    💬
+  <button id="cb-btn" aria-label="開啟智能客服" onclick="cbToggle()" style="position:fixed!important;bottom:24px!important;right:24px!important;z-index:2147483647!important;width:80px!important;height:80px!important;border-radius:50%!important;background:transparent!important;border:none!important;padding:0!important;cursor:pointer!important;box-shadow:0 6px 24px rgba(0,150,200,.4)!important;overflow:hidden!important;">
+    <img src="img/widget-preview.png" alt="AI客服" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" />
     <div class="cb-badge">AI</div>
   </button>
 
@@ -934,7 +934,7 @@ OpenMind Studio 是台灣接案工程師工作室，專注三大服務：
       const win = document.getElementById('cb-win');
       win.classList.toggle('open', isOpen);
       const btn = document.getElementById('cb-btn');
-      btn.innerHTML = isOpen ? '✕<div class="cb-badge">AI</div>' : '💬<div class="cb-badge">AI</div>';
+      btn.innerHTML = isOpen ? '✕<div class="cb-badge">AI</div>' : '<img src="img/widget-preview.png" alt="AI客服" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;position:absolute;top:0;left:0;"/><div class="cb-badge">AI</div>';
       if (isOpen && history.length === 0) {
         initGreeting();
         setTimeout(() => document.getElementById('cb-input').focus(), 300);
