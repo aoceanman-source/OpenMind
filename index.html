@@ -404,420 +404,6 @@
         <article class="portfolio-card" data-cat="linebot">
           <div class="portfolio-card__mockup" style="padding:0;overflow:hidden;background:#0a1628;">
             <img src="img/linebot-hero.png" alt="LINE AI 客服機器人" style="width:100%;height:100%;object-fit:cover;object-position:center center;" />
-            <span class="mock-result">LINE Bot 運行中</span>
-          </div>TF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ── SEO Primary ── -->
-  <title>OpenMind Studio｜LINE Bot 智能客服・爬蟲自動化・形象官網・台灣接案工程師</title>
-  <meta name="description" content="OpenMind Studio 專為電商與服務業老闆打造自動化解決方案：LINE 智能客服 Bot、競品查價爬蟲、形象官網、自動化工作流。一個月無限修改保證，附中文操作說明，高 CP 值，讓你準時下班陪家人。" />
-  <link rel="canonical" href="https://aoceanman-source.github.io/OpenMind/" />
-
-  <!-- ── Open Graph ── -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aoceanman-source.github.io/OpenMind/" />
-  <meta property="og:title" content="OpenMind Studio｜LINE Bot × 爬蟲自動化 × 形象官網" />
-  <meta property="og:description" content="幫電商與服務業老闆用自動化工具消除重複性工作，讓你準時下班陪家人。一個月無限修改保證。" />
-  <meta property="og:locale" content="zh_TW" />
-
-  <!-- ── Twitter Card ── -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="OpenMind Studio｜自動化接案工程師" />
-  <meta name="twitter:description" content="LINE Bot、爬蟲、官網、自動化工作流。一個月無限修改。" />
-
-  <!-- ── Structured Data ── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "OpenMind Studio",
-    "url": "https://aoceanman-source.github.io/OpenMind/",
-    "email": "aoceanman@gmail.com",
-    "description": "台灣接案工程師，專攻 LINE Bot、爬蟲自動化、形象官網開發",
-    "areaServed": "TW",
-    "serviceType": ["LINE Bot開發","爬蟲自動化","形象官網","自動化工作流"]
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* ── Portfolio 篩選器 & mockup（只新增，不覆蓋原 CSS）── */
-    .portfolio__filters {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 48px;
-    }
-    .portfolio__grid {
-      gap: 28px;
-    }
-    .portfolio-card {
-      display: flex;
-      flex-direction: column;
-    }
-    .portfolio-card p {
-      flex: 1;
-    }
-    .filter-btn {
-      font-size: .65rem;
-      font-weight: 400;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: 8px 20px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: var(--font-sans);
-    }
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--black);
-      color: var(--white);
-      border-color: var(--black);
-    }
-    .portfolio-card.hidden { display: none; }
-
-    /* mockup 視窗（嵌入 portfolio-card 頂部） */
-    .portfolio-card__mockup {
-      margin: -32px -32px 24px -32px;
-      height: 180px;
-      overflow: hidden;
-      background: #0d1117;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--gray-light);
-      position: relative;
-    }
-    .mock-win {
-      width: 86%;
-      background: #161b22;
-      border-radius: 6px;
-      border: 1px solid rgba(255,255,255,.08);
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,.5);
-      font-family: 'DM Mono', monospace;
-    }
-    .mock-bar {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px 8px;
-      background: #21262d;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .m-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-    .m-dot.r { background: #ff5f56; }
-    .m-dot.y { background: #ffbd2e; }
-    .m-dot.g { background: #27c93f; }
-    .mock-url-bar {
-      flex: 1; margin: 0 6px;
-      background: rgba(255,255,255,.05);
-      border-radius: 3px;
-      font-size: .5rem;
-      color: rgba(255,255,255,.3);
-      padding: 2px 6px;
-      letter-spacing: .5px;
-    }
-    .mock-body { padding: 8px 10px; }
-
-    /* terminal lines */
-    .t-row { display: flex; gap: 6px; font-size: .58rem; line-height: 1.8; }
-    .t-ps  { color: #7ee787; flex-shrink: 0; }
-    .t-cmd { color: #e6edf3; }
-    .t-out { color: #58a6ff; padding-left: 12px; }
-    .t-ok  { color: #7ee787; padding-left: 12px; }
-    .t-dim { color: rgba(255,255,255,.3); padding-left: 12px; }
-
-    /* chat bubbles */
-    .chat-row { display: flex; gap: 5px; align-items: flex-end; margin-bottom: 5px; }
-    .chat-row.right { justify-content: flex-end; }
-    .chat-av { width: 16px; height: 16px; border-radius: 50%; background: #00b900; display: flex; align-items: center; justify-content: center; font-size: .5rem; flex-shrink: 0; }
-    .bbl { max-width: 75%; font-size: .56rem; padding: 4px 7px; border-radius: 10px; line-height: 1.4; }
-    .bbl.bot  { background: #21262d; color: #e6edf3; border-bottom-left-radius: 2px; }
-    .bbl.user { background: #00b900; color: #fff; border-bottom-right-radius: 2px; }
-
-    /* table rows (crawler) */
-    .tbl-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4px; font-size: .55rem; margin-bottom: 3px; }
-    .tbl-row.hd { color: rgba(255,255,255,.3); border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 3px; margin-bottom: 5px; }
-    .tbl-cell { color: #e6edf3; }
-    .tbl-cell.dn { color: #f85149; }
-    .tbl-cell.up { color: #7ee787; }
-
-    /* result badge on mockup */
-    .mock-result {
-      position: absolute;
-      bottom: 8px; right: 10px;
-      font-family: 'DM Mono', monospace;
-      font-size: .55rem;
-      background: rgba(0,0,0,.7);
-      border: 1px solid rgba(255,255,255,.1);
-      color: #7ee787;
-      padding: 2px 7px;
-      border-radius: 2px;
-      backdrop-filter: blur(4px);
-    }
-    .mock-bg-linebot { background: linear-gradient(135deg,#071a0e,#0a2e18); }
-    .mock-bg-crawler { background: linear-gradient(135deg,#0d1117,#1a2744); }
-    .mock-bg-web     { background: linear-gradient(135deg,#0d1117,#1a1030); }
-    .mock-bg-auto    { background: linear-gradient(135deg,#0d1117,#1a2010); }
-  
-    /* Pain SVG icon */
-    .pain__icon-wrap {
-      width: 88px !important;
-      height: 88px !important;
-      min-width: 88px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .pain__icon-wrap svg,
-    .pain__icon-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ─── NAVBAR ─── -->
-  <header class="navbar" id="navbar">
-    <div class="container navbar__inner">
-      <a href="#" class="navbar__logo">
-        <span class="logo-text">OpenMind<span class="logo-accent"> Studio</span></span>
-      </a>
-      <nav class="navbar__nav" id="navMenu" aria-label="主要導覽">
-        <a href="#services">服務項目</a>
-        <a href="portfolio.html">作品集</a>
-        <a href="#why-me">為什麼選我</a>
-        <a href="#about">關於我</a>
-        <a href="#contact" class="btn btn--sm btn--primary">聯絡我</a>
-      </nav>
-      <button class="navbar__burger" id="navBurger" aria-label="開啟選單">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- ─── HERO ─── -->
-  <section class="hero" id="hero">
-    <div class="hero__bg">
-      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=90" alt="" aria-hidden="true" />
-      <div class="hero__overlay"></div>
-    </div>
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <p class="hero__eyebrow">自動化工程師｜LINE 客服｜形象官網</p>
-        <h1 class="hero__title">
-          把你每天做三遍的事，<br />
-          交給我做一次，<br />
-          然後讓系統永遠幫你做。
-        </h1>
-        <p class="hero__subtitle">
-          我幫電商與服務業老闆，用自動化工具消除重複性工作，<br class="br-desktop" />
-          讓你準時下班陪家人。
-        </p>
-        <div class="hero__actions">
-          <a href="#contact" class="btn btn--primary btn--lg">直接聯絡我 →</a>
-          <a href="#services" class="btn btn--ghost btn--lg">看看我能做什麼</a>
-        </div>
-        <div class="hero__badges">
-          <span class="badge">一個月無限修改</span>
-          <span class="badge">附操作說明文件</span>
-          <span class="badge">高 CP 值入門方案</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero__scroll-hint">
-      <span>往下看</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
-
-  <!-- ─── PAIN POINTS ─── -->
-  <section class="pain" id="pain">
-    <div class="pain__bg">
-      <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&q=85" alt="" aria-hidden="true" />
-      <div class="pain__overlay"></div>
-    </div>
-    <div class="container">
-      <p class="section-eyebrow">你是不是也這樣？</p>
-      <h2 class="section-title">每天都在做<span class="text-accent">這些事</span>嗎？</h2>
-      <div class="pain__grid">
-        <div class="pain__card">
-          <div class="pain__icon-wrap">
-            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
-              <circle cx="40" cy="40" r="40" fill="#FF6B35"/>
-              <polyline points="16,56 28,38 40,46 62,22" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <circle cx="16" cy="56" r="4" fill="white"/>
-              <circle cx="28" cy="38" r="4" fill="white"/>
-              <circle cx="40" cy="46" r="4" fill="white"/>
-              <circle cx="62" cy="22" r="4" fill="white"/>
-            </svg>
-          </div>
-          <p>每天手動巡 5 個競品網站，花 1 小時調一次售價</p>
-        </div>
-        <div class="pain__card">
-          <div class="pain__icon-wrap">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE" style="width:60px;height:60px;object-fit:contain;"/>
-          </div>
-          <p>半夜 11 點還在手動回 LINE：「請問今天還有空嗎？」</p>
-        </div>
-        <div class="pain__card">
-          <div class="pain__icon-wrap">
-            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
-              <circle cx="40" cy="40" r="40" fill="#0084FF"/>
-              <rect x="14" y="18" width="52" height="42" rx="3" stroke="white" stroke-width="2.5" fill="none"/>
-              <line x1="14" y1="29" x2="66" y2="29" stroke="white" stroke-width="2"/>
-              <line x1="14" y1="40" x2="66" y2="40" stroke="white" stroke-width="1.5" opacity="0.7"/>
-              <line x1="14" y1="51" x2="66" y2="51" stroke="white" stroke-width="1.5" opacity="0.7"/>
-              <line x1="38" y1="18" x2="38" y2="60" stroke="white" stroke-width="1.5" opacity="0.7"/>
-              <rect x="16" y="20" width="20" height="7" rx="1" fill="white" opacity="0.3"/>
-            </svg>
-          </div>
-          <p>每個月底複製貼上 Excel 三個小時，對帳對到懷疑人生</p>
-        </div>
-        <div class="pain__card">
-          <div class="pain__icon-wrap">
-            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
-              <circle cx="40" cy="40" r="40" fill="#7C3AED"/>
-              <rect x="12" y="18" width="56" height="38" rx="4" stroke="white" stroke-width="2.5" fill="none"/>
-              <line x1="12" y1="29" x2="68" y2="29" stroke="white" stroke-width="2"/>
-              <circle cx="20" cy="23.5" r="3" fill="white"/>
-              <circle cx="29" cy="23.5" r="3" fill="white"/>
-              <circle cx="38" cy="23.5" r="3" fill="white"/>
-              <rect x="18" y="36" width="44" height="3.5" rx="1.5" fill="white" opacity="0.9"/>
-              <rect x="18" y="43" width="30" height="3.5" rx="1.5" fill="white" opacity="0.6"/>
-              <rect x="18" y="50" width="36" height="3.5" rx="1.5" fill="white" opacity="0.6"/>
-            </svg>
-          </div>
-          <p>客戶 Google 你找不到，或找到的是五年前做的醜網站</p>
-        </div>
-      </div>
-      <p class="pain__conclusion">這些事情<strong>不需要你的大腦</strong>，但卻佔走了你<strong>最寶貴的時間</strong>。</p>
-    </div>
-  </section>
-
-  <!-- ─── SERVICES ─── -->
-  <section class="services" id="services">
-    <div class="container">
-      <p class="section-eyebrow">服務項目</p>
-      <h2 class="section-title">我能幫你<span class="text-accent">做的事</span></h2>
-      <div class="services__grid">
-
-        <div class="service-card">
-          <div class="service-card__img">
-            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=85" alt="電商查價自動化" />
-          </div>
-          <div class="service-card__body">
-            <h3>電商競品查價自動化</h3>
-            <p>定時爬取指定電商平台的競品價格，自動整理成報表通知你。再也不用每天手動巡價。</p>
-            <ul class="service-card__features">
-              <li>多平台同時監控（蝦皮、Momo、PChome 等）</li>
-              <li>價格變動自動通知（LINE / Email）</li>
-              <li>每日 / 週報表自動生成</li>
-            </ul>
-            <div class="service-card__tag">電商必備</div>
-          </div>
-        </div>
-
-        <div class="service-card service-card--featured">
-          <div class="service-card__badge">最熱門</div>
-          <div class="service-card__img" style="background:#00B900;display:flex;align-items:center;justify-content:center;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE" style="width:100px;height:100px;object-fit:contain;"/>
-          </div>
-          <div class="service-card__body">
-            <h3>LINE 智能客服</h3>
-            <p>幫你打造 24 小時自動回應的 LINE 客服機器人，常見問題全自動，你睡覺它繼續工作。</p>
-            <ul class="service-card__features">
-              <li>FAQ 常見問題自動回覆</li>
-              <li>RAG 知識庫客製化內容</li>
-              <li>限制範圍外自動轉人工</li>
-            </ul>
-            <div class="service-card__tag">服務業首選</div>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-card__img">
-            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=85" alt="形象官網" />
-          </div>
-          <div class="service-card__body">
-            <h3>形象官網</h3>
-            <p>打造讓客戶一眼看見你專業的響應式官網，從第一印象就建立信任感，把訪客變成詢問。</p>
-            <ul class="service-card__features">
-              <li>RWD 手機電腦完美顯示</li>
-              <li>公司介紹 + 服務展示</li>
-              <li>潛在客戶聯絡 / 詢問表單</li>
-            </ul>
-            <div class="service-card__tag">品牌必備</div>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-card__img">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85" alt="自動化工作流" />
-          </div>
-          <div class="service-card__body">
-            <h3>客製化自動化工作流</h3>
-            <p>把你每天重複做的流程交給系統。報價、對帳、寄信、填單——只要有規律，就能自動化。</p>
-            <ul class="service-card__features">
-              <li>各行業日常流程自動化</li>
-              <li>系統串接整合（表單 / Email / 試算表）</li>
-              <li>減少人工、降低人力成本</li>
-            </ul>
-            <div class="service-card__tag">各行業適用</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── PORTFOLIO ─── -->
-  <section class="portfolio" id="portfolio">
-    <div class="container">
-      <p class="section-eyebrow">實作案例</p>
-      <h2 class="section-title">這些功能<br /><span class="text-accent">做出來了</span></h2>
-      <p class="portfolio__intro">每一個案例都是實際可運行的專案，不是 mockup，歡迎直接查看。</p>
-      <div style="text-align:center;margin-bottom:16px;"><a href="portfolio.html" class="btn btn--outline">查看完整作品集 →</a></div>
-
-      <!-- 篩選器 -->
-      <div class="portfolio__filters" role="group" aria-label="篩選作品類別">
-        <button class="filter-btn active" data-filter="all">全部</button>
-        <button class="filter-btn" data-filter="linebot">LINE Bot</button>
-        <button class="filter-btn" data-filter="crawler">爬蟲自動化</button>
-        <button class="filter-btn" data-filter="web">網站</button>
-      </div>
-
-      <div class="portfolio__grid">
-
-        <!-- 1. LINE Bot AI 客服 -->
-        <article class="portfolio-card" data-cat="linebot">
-          <div class="portfolio-card__mockup mock-bg-linebot">
-            <div class="mock-win">
-              <div class="mock-bar">
-                <span class="m-dot r"></span><span class="m-dot y"></span><span class="m-dot g"></span>
-                <span class="mock-url-bar">line.me · AI 客服系統</span>
-              </div>
-              <div class="mock-body">
-                <div class="chat-row"><div class="chat-av">🟢</div><div class="bbl bot">您好！請問有什麼需要協助的？</div></div>
-                <div class="chat-row right"><div class="bbl user">請問今天還有空嗎？</div></div>
-                <div class="chat-row"><div class="chat-av">🟢</div><div class="bbl bot">📅 有的！以下時段可預約 → 已收集您的資料 ✅</div></div>
-              </div>
-            </div>
             <span class="mock-result">✓ 上線中</span>
           </div>
           <div class="portfolio-card__header">
@@ -1165,178 +751,79 @@
   </script>
   <!-- ── AI 智能客服 Widget ── -->
   <style>
-    /* ── Chatbot ── */
     #cb-btn {
-      position: fixed !important;
-      bottom: 20px !important; right: 20px !important;
-      z-index: 2147483647 !important;
-      width: 86px !important; height: 86px !important;
-      border-radius: 50% !important;
-      background: #000 !important;
-      border: 2px solid rgba(0,220,255,.5) !important;
-      padding: 0 !important;
-      cursor: pointer !important;
-      box-shadow: 0 0 0 4px rgba(0,200,255,.15), 0 8px 28px rgba(0,150,255,.4) !important;
-      overflow: hidden !important;
-      transition: box-shadow .3s, transform .3s !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
+      position: fixed; bottom: 20px; right: 20px;
+      z-index: 2147483647;
+      width: 86px; height: 86px; border-radius: 50%;
+      background: #000;
+      border: 2.5px solid rgba(0,220,255,.6);
+      padding: 0; cursor: pointer;
+      box-shadow: 0 0 0 5px rgba(0,200,255,.12), 0 8px 28px rgba(0,150,255,.45);
+      overflow: hidden;
+      transition: transform .25s;
     }
-    #cb-btn:hover { transform: scale(1.07) !important; }
-    #cb-btn .cb-btn__img {
-      width: 100%; height: 115%;
-      object-fit: cover; object-position: center 10%;
-      border-radius: 50%; display: block; margin-top: -8%;
-      transition: opacity .2s;
-    }
-    #cb-btn .cb-btn__close {
-      display: none;
-      font-size: 1.4rem; color: #fff; font-weight: 300; line-height: 1;
-    }
-    #cb-btn.cb-btn--open .cb-btn__img { display: none; }
-    #cb-btn.cb-btn--open .cb-btn__close { display: block; }
-    #cb-btn.cb-btn--open {
-      background: rgba(30,30,50,.9) !important;
-      border-color: rgba(255,255,255,.3) !important;
-      box-shadow: 0 4px 16px rgba(0,0,0,.3) !important;
-    }
-    #cb-btn .cb-badge {
-      position: absolute; top: -2px; right: -2px;
-      background: #f85149; color: #fff;
-      font-size: .55rem; font-weight: 700;
-      width: 20px; height: 20px; border-radius: 50%;
+    #cb-btn:hover { transform: scale(1.07); }
+    #cb-btn > img { width:100%; height:115%; object-fit:cover; object-position:center 10%; display:block; margin-top:-8%; pointer-events:none; }
+    #cb-badge {
+      position: fixed; bottom: 84px; right: 16px; z-index: 2147483647;
+      background: #f85149; color: #fff; font-size: .55rem; font-weight: 700;
+      width: 22px; height: 22px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-family: sans-serif; border: 2px solid #fff;
+      font-family: sans-serif; border: 2px solid #fff; pointer-events: none;
     }
-
     #cb-win {
-      position: fixed !important; bottom: 118px !important; right: 20px !important; z-index: 2147483646 !important;
+      position: fixed; bottom: 118px; right: 20px; z-index: 2147483646;
       width: 360px; max-height: 560px;
-      background: #f5f7fa; border: 1px solid #d0d8e4;
-      border-radius: 16px;
+      background: #f5f7fa; border: 1px solid #d0d8e4; border-radius: 16px;
       box-shadow: 0 20px 60px rgba(0,0,0,.25);
       display: flex; flex-direction: column;
       opacity: 0; transform: translateY(16px) scale(.97);
-      pointer-events: none;
-      transition: opacity .25s, transform .25s;
+      pointer-events: none; transition: opacity .25s, transform .25s;
       font-family: 'Noto Sans TC', -apple-system, sans-serif;
     }
-    #cb-win.open {
-      opacity: 1; transform: translateY(0) scale(1); pointer-events: all;
-    }
-
-    .cb-head {
-      display: flex; align-items: center; gap: .75rem;
-      padding: .75rem 1rem; border-bottom: 1px solid #e0e0e0;
-      border-radius: 16px 16px 0 0;
-      background: linear-gradient(135deg, #1a6fa8, #0d4f80);
-    }
-    .cb-head-av {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: #000; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; border: 2px solid rgba(255,255,255,.3);
-      box-shadow: 0 0 0 2px rgba(0,200,255,.3);
-    }
-    .cb-head-av img { width: 100%; height: 115%; object-fit: cover; object-position: center 10%; }
-    .cb-head-info { flex: 1; }
-    .cb-head-name { font-size: .88rem; font-weight: 700; color: #fff; letter-spacing: .02em; }
-    .cb-head-status { font-size: .66rem; color: rgba(255,255,255,.75); margin-top: .15rem; display: flex; align-items: center; gap: .3rem; }
-    .cb-head-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #4eff91; display: inline-block; box-shadow: 0 0 6px #4eff91; }
-    .cb-close {
-      background: rgba(255,255,255,.15); border: none; color: #fff;
-      font-size: 1rem; cursor: pointer; padding: .3rem .5rem;
-      border-radius: 6px; transition: background .2s;
-      line-height: 1;
-    }
-    .cb-close:hover { background: rgba(255,255,255,.28); }
-
-    .cb-msgs {
-      flex: 1; overflow-y: auto; padding: 1rem;
-      display: flex; flex-direction: column; gap: .75rem;
-      max-height: 370px; background: #f5f7fa;
-    }
-    .cb-msgs::-webkit-scrollbar { width: 4px; }
-    .cb-msgs::-webkit-scrollbar-thumb { background: #c0c8d4; border-radius: 2px; }
-
-    .cb-msg { display: flex; gap: .5rem; align-items: flex-end; }
-    .cb-msg.user { justify-content: flex-end; }
-    .cb-msg-av {
-      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
-      background: #000; overflow: hidden; border: 1px solid #dde3ec;
-    }
-    .cb-msg-av img { width: 100%; height: 115%; object-fit: cover; object-position: center 10%; }
-    .cb-bubble {
-      max-width: 78%; padding: .6rem .9rem;
-      border-radius: 14px; font-size: .83rem; line-height: 1.65;
-    }
-    .cb-msg.bot  .cb-bubble { background: #fff; color: #222; border-bottom-left-radius: 3px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
-    .cb-msg.user .cb-bubble { background: #1a6fa8; color: #fff; border-bottom-right-radius: 3px; }
-    .cb-typing {
-      display: flex; gap: 4px; padding: .6rem .85rem;
-      background: #fff; border-radius: 14px; border-bottom-left-radius: 3px;
-      width: fit-content; align-items: center; box-shadow: 0 1px 4px rgba(0,0,0,.08);
-    }
-    .cb-dot {
-      width: 6px; height: 6px; border-radius: 50%; background: #58a6ff;
-      animation: cbDot 1.2s ease-in-out infinite;
-    }
-    .cb-dot:nth-child(2) { animation-delay: .2s; }
-    .cb-dot:nth-child(3) { animation-delay: .4s; }
-    @keyframes cbDot { 0%,80%,100%{transform:scale(.7);opacity:.5} 40%{transform:scale(1);opacity:1} }
-
-    .cb-quick {
-      display: flex; gap: .4rem; flex-wrap: wrap;
-      padding: .5rem 1rem .25rem;
-    }
-    .cb-quick-btn {
-      background: rgba(26,111,168,.1); border: 1px solid rgba(26,111,168,.3);
-      color: #1a6fa8; font-size: .7rem; padding: .3rem .7rem;
-      border-radius: 20px; cursor: pointer;
-      font-family: inherit; transition: background .2s;
-      white-space: nowrap;
-    }
-    .cb-quick-btn:hover { background: rgba(26,111,168,.2); }
-
-    .cb-foot {
-      display: flex; gap: .5rem; padding: .75rem 1rem;
-      border-top: 1px solid #dde3ec; background: #fff;
-      border-radius: 0 0 16px 16px;
-    }
-    .cb-input {
-      flex: 1; background: #f0f3f8; border: 1px solid #d0d8e4;
-      border-radius: 20px; padding: .55rem 1rem;
-      color: #222; font-size: .82rem; font-family: inherit; outline: none;
-      transition: border-color .2s;
-    }
-    .cb-input:focus { border-color: #1a6fa8; }
-    .cb-input::placeholder { color: #aaa; }
-    .cb-send {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: #1a6fa8; border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .9rem; transition: background .2s, transform .15s;
-      flex-shrink: 0;
-    }
-    .cb-send:hover { background: #155a8a; transform: scale(1.08); }
-    .cb-send:disabled { background: #c0c8d4; cursor: not-allowed; transform: none; }
-
-    @media(max-width: 420px) {
-      #cb-win { width: calc(100vw - 24px); right: 12px; bottom: 90px; }
-      #cb-btn { bottom: 18px; right: 18px; }
-    }
+    #cb-win.open { opacity:1; transform:translateY(0) scale(1); pointer-events:all; }
+    .cb-head { display:flex; align-items:center; gap:.75rem; padding:.75rem 1rem; border-radius:16px 16px 0 0; background:linear-gradient(135deg,#1a6fa8,#0d4f80); flex-shrink:0; }
+    .cb-head-av { width:44px; height:44px; border-radius:50%; background:#000; overflow:hidden; flex-shrink:0; border:2px solid rgba(255,255,255,.3); }
+    .cb-head-av img { width:100%; height:115%; object-fit:cover; object-position:center 10%; }
+    .cb-head-info { flex:1; }
+    .cb-head-name { font-size:.88rem; font-weight:700; color:#fff; }
+    .cb-head-status { font-size:.66rem; color:rgba(255,255,255,.8); display:flex; align-items:center; gap:.3rem; margin-top:.1rem; }
+    .cb-head-status::before { content:""; width:7px; height:7px; border-radius:50%; background:#4eff91; display:inline-block; }
+    .cb-close { background:rgba(255,255,255,.15); border:none; color:#fff; font-size:1.1rem; cursor:pointer; padding:.3rem .6rem; border-radius:6px; transition:background .2s; line-height:1; }
+    .cb-close:hover { background:rgba(255,255,255,.3); }
+    .cb-msgs { flex:1; overflow-y:auto; padding:1rem; display:flex; flex-direction:column; gap:.75rem; max-height:370px; background:#f5f7fa; }
+    .cb-msgs::-webkit-scrollbar { width:4px; }
+    .cb-msgs::-webkit-scrollbar-thumb { background:#c0c8d4; border-radius:2px; }
+    .cb-msg { display:flex; gap:.5rem; align-items:flex-end; }
+    .cb-msg.user { justify-content:flex-end; }
+    .cb-msg-av { width:28px; height:28px; border-radius:50%; flex-shrink:0; background:#000; overflow:hidden; }
+    .cb-msg-av img { width:100%; height:115%; object-fit:cover; object-position:center 10%; }
+    .cb-bubble { max-width:78%; padding:.6rem .9rem; border-radius:14px; font-size:.83rem; line-height:1.65; }
+    .cb-msg.bot .cb-bubble { background:#fff; color:#222; border-bottom-left-radius:3px; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+    .cb-msg.user .cb-bubble { background:#1a6fa8; color:#fff; border-bottom-right-radius:3px; }
+    .cb-typing { display:flex; gap:4px; padding:.6rem .85rem; background:#fff; border-radius:14px; border-bottom-left-radius:3px; width:fit-content; align-items:center; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+    .cb-dot { width:6px; height:6px; border-radius:50%; background:#1a6fa8; animation:cbDot 1.2s ease-in-out infinite; }
+    .cb-dot:nth-child(2){animation-delay:.2s;} .cb-dot:nth-child(3){animation-delay:.4s;}
+    @keyframes cbDot{0%,80%,100%{transform:scale(.7);opacity:.5}40%{transform:scale(1);opacity:1}}
+    .cb-quick { display:flex; gap:.4rem; flex-wrap:wrap; padding:.5rem 1rem .25rem; background:#f5f7fa; }
+    .cb-quick-btn { background:rgba(26,111,168,.1); border:1px solid rgba(26,111,168,.3); color:#1a6fa8; font-size:.7rem; padding:.3rem .7rem; border-radius:20px; cursor:pointer; font-family:inherit; transition:background .2s; white-space:nowrap; }
+    .cb-quick-btn:hover { background:rgba(26,111,168,.2); }
+    .cb-foot { display:flex; gap:.5rem; padding:.75rem 1rem; border-top:1px solid #dde3ec; background:#fff; border-radius:0 0 16px 16px; }
+    .cb-input { flex:1; background:#f0f3f8; border:1px solid #d0d8e4; border-radius:20px; padding:.55rem 1rem; color:#222; font-size:.82rem; font-family:inherit; outline:none; transition:border-color .2s; }
+    .cb-input:focus { border-color:#1a6fa8; }
+    .cb-input::placeholder { color:#aaa; }
+    .cb-send { width:38px; height:38px; border-radius:50%; background:#1a6fa8; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:.9rem; transition:background .2s,transform .15s; flex-shrink:0; }
+    .cb-send:hover { background:#155a8a; transform:scale(1.08); }
+    .cb-send:disabled { background:#c0c8d4; cursor:not-allowed; transform:none; }
+    @media(max-width:420px){#cb-win{width:calc(100vw - 24px);right:12px;bottom:90px;}#cb-btn{bottom:16px;right:16px;}#cb-badge{bottom:78px;right:12px;}}
   </style>
 
-  <!-- Toggle Button -->
-  <button id="cb-btn" aria-label="開啟智能客服" onclick="cbToggle()">
-    <img class="cb-btn__img" src="img/chloe.png" alt="AI客服 Chloe" />
-    <span class="cb-btn__close">✕</span>
-    <div class="cb-badge">AI</div>
+  <button id="cb-btn" onclick="cbToggle()" aria-label="開啟 AI 智能客服">
+    <img src="img/chloe.png" alt="AI客服 Chloe" />
   </button>
+  <div id="cb-badge">AI</div>
 
-  <!-- Chat Window -->
-  <div id="cb-win" role="dialog" aria-label="AI 智能客服">
+  <div id="cb-win" role="dialog" aria-modal="true" aria-label="AI 智能客服">
     <div class="cb-head">
       <div class="cb-head-av"><img src="img/chloe.png" alt="Chloe" /></div>
       <div class="cb-head-info">
@@ -1345,154 +832,78 @@
       </div>
       <button class="cb-close" onclick="cbToggle()" aria-label="關閉">✕</button>
     </div>
-
     <div class="cb-msgs" id="cb-msgs"></div>
-
     <div class="cb-quick" id="cb-quick">
       <button class="cb-quick-btn" onclick="cbQuick(this)">💬 LINE Bot 費用？</button>
       <button class="cb-quick-btn" onclick="cbQuick(this)">⏱ 需要多久完成？</button>
       <button class="cb-quick-btn" onclick="cbQuick(this)">🌐 網站設計價格？</button>
       <button class="cb-quick-btn" onclick="cbQuick(this)">🔄 售後服務？</button>
     </div>
-
     <div class="cb-foot">
-      <input class="cb-input" id="cb-input" type="text" placeholder="輸入您的問題…" maxlength="300"
-             onkeydown="if(event.key==='Enter')cbSend()">
-      <button class="cb-send" id="cb-send-btn" onclick="cbSend()" aria-label="送出">➤</button>
+      <input id="cb-input" class="cb-input" type="text" placeholder="輸入訊息…" onkeydown="if(event.key==='Enter')cbSend()" maxlength="200" />
+      <button class="cb-send" onclick="cbSend()" aria-label="送出">➤</button>
     </div>
   </div>
 
   <script>
   (function(){
-    const SYSTEM = `你是 OpenMind Studio 的智能客服助理。用繁體中文回答，語氣親切專業，回答簡潔（100字以內）。
-
-OpenMind Studio 是台灣接案工程師工作室，專注三大服務：
-1. LINE Bot AI 客服系統：24小時自動回應、常見問題自動處理、可串接預約/訂單，價格約 NT$8,000~25,000，工期 1~3 週
-2. 爬蟲自動化：競品查價、庫存監控、電商資料收集，價格依需求報價，約 NT$5,000~20,000
-3. 形象官網：RWD 響應式設計、SEO 優化、含 LINE 諮詢按鈕，價格約 NT$15,000~40,000，工期 2~4 週
-
-保證：一個月無限修改，附中文操作說明。
-聯絡方式：引導至 LINE 或表單諮詢。
-不確定的問題請說「這個問題讓我幫您轉接真人工程師確認」。`;
-
-    let history = [];
-    let isOpen = false;
-    let isSending = false;
-
-    function initGreeting() {
-      const msgs = document.getElementById('cb-msgs');
-      appendMsg('bot', '嗨！我是 OpenMind 的 AI 助理 👋<br>想了解 LINE Bot、官網設計或爬蟲自動化？直接問我！');
-    }
-
-    window.cbToggle = function() {
-      isOpen = !isOpen;
-      const win = document.getElementById('cb-win');
-      win.classList.toggle('open', isOpen);
-      const btn = document.getElementById('cb-btn');
-      btn.classList.toggle('cb-btn--open', isOpen);
-      if (isOpen && history.length === 0) {
-        initGreeting();
-        setTimeout(() => document.getElementById('cb-input').focus(), 300);
-      }
+    var SP="你是 OpenMind Studio 的 AI 客服助理，專門協助潛在客戶了解服務內容與報價。\n請用繁體中文親切地回答，不超過 150 字。\n\n服務項目與報價：\n1. LINE Bot AI 客服系統：24小時自動回應、常見問題自動處理、可串接預約/訂單，價格約 NT$8,000~25,000，工期 1~3 週\n2. 爬蟲自動化：競品查價、庫存監控、電商資料收集，價格依需求報價，約 NT$5,000~20,000\n3. 形象官網：RWD 響應式設計、SEO 優化、含 LINE 諮詢按鈕，價格約 NT$15,000~40,000，工期 2~4 週\n4. 電商購物網站：購物車、金流串接、訂單管理，價格約 NT$30,000~80,000，工期 4~8 週\n\n保證：一個月無限修改，附中文操作說明。\n聯絡方式：引導至 LINE 或表單諮詢。\n不確定的問題請說「這個問題讓我幫您轉接真人工程師確認」。";
+    var history=[],isOpen=false,isSending=false;
+    function initGreeting(){appendMsg("bot","嗨！我是 OpenMind 的 AI 助理 👋<br>想了解 LINE Bot、官網設計或爬蟲自動化？直接問我！");}
+    window.cbToggle=function(){
+      isOpen=!isOpen;
+      document.getElementById("cb-win").classList.toggle("open",isOpen);
+      if(isOpen&&history.length===0){initGreeting();setTimeout(function(){document.getElementById("cb-input").focus();},300);}
     };
-
-    window.cbQuick = function(el) {
-      const text = el.textContent.replace(/^[^\s]+\s/, '');
-      document.getElementById('cb-input').value = text;
-      document.getElementById('cb-quick').style.display = 'none';
+    window.cbQuick=function(el){
+      document.getElementById("cb-input").value=el.textContent.trim().replace(/^\S+\s*/,"");
+      document.getElementById("cb-quick").style.display="none";
       cbSend();
     };
-
-    window.cbSend = async function() {
-      if (isSending) return;
-      const input = document.getElementById('cb-input');
-      const text = input.value.trim();
-      if (!text) return;
-
-      input.value = '';
-      appendMsg('user', escHtml(text));
-      document.getElementById('cb-quick').style.display = 'none';
-      history.push({ role: 'user', content: text });
-
-      isSending = true;
-      document.getElementById('cb-send-btn').disabled = true;
-
-      const typingId = appendTyping();
-
-      try {
-        const API_KEY = 'AIzaSyCkwGEFRWWUljMvmF9zugYR-idGtuk6Xvw';
-        const geminiHistory = history.slice(0,-1).map(m => ({
-          role: m.role === 'assistant' ? 'model' : 'user',
-          parts: [{ text: m.content }]
-        }));
-        const res = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              system_instruction: { parts: [{ text: SYSTEM }] },
-              contents: [
-                ...geminiHistory,
-                { role: 'user', parts: [{ text: history[history.length-1].content }] }
-              ],
-              generationConfig: { maxOutputTokens: 300, temperature: 0.7 }
-            })
-          }
-        );
-        const data = await res.json();
-        removeTyping(typingId);
-
-        const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || '抱歉，我暫時無法回應，請直接透過 LINE 聯繫我們 😊';
-        history.push({ role: 'assistant', content: reply });
-        appendMsg('bot', escHtml(reply).replace(/\n/g,'<br>'));
-
-      } catch(e) {
-        removeTyping(typingId);
-        appendMsg('bot', '連線異常，請稍後再試，或直接 <a href="#contact" style="color:#00B900">填寫表單</a> 聯絡我們 🙏');
-      }
-
-      isSending = false;
-      document.getElementById('cb-send-btn').disabled = false;
-      input.focus();
+    window.cbSend=async function(){
+      if(isSending)return;
+      var inp=document.getElementById("cb-input");
+      var text=inp.value.trim();if(!text)return;
+      inp.value="";isSending=true;
+      document.querySelector(".cb-send").disabled=true;
+      appendMsg("user",text);history.push({role:"user",content:text});
+      var tid=appendTyping();
+      try{
+        var res=await fetch("https://api.anthropic.com/v1/messages",{
+          method:"POST",
+          headers:{"Content-Type":"application/json","x-api-key":"sk-ant-api03-placeholder","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+          body:JSON.stringify({model:"claude-haiku-4-5-20251001",max_tokens:400,system:SP,messages:history})
+        });
+        removeTyping(tid);
+        var data=await res.json();
+        var reply=(data.content&&data.content[0]&&data.content[0].text)||"抱歉，請直接聯絡 LINE！";
+        history.push({role:"assistant",content:reply});
+        appendMsg("bot",reply.replace(/\n/g,"<br>"));
+      }catch(e){removeTyping(tid);appendMsg("bot","網路異常，請直接用 LINE 聯絡我們 🙏");}
+      isSending=false;document.querySelector(".cb-send").disabled=false;
     };
-
-    function appendMsg(role, html) {
-      const msgs = document.getElementById('cb-msgs');
-      const row = document.createElement('div');
-      row.className = 'cb-msg ' + role;
-      row.innerHTML = role === 'bot'
-        ? \`<div class="cb-msg-av">🤖</div><div class="cb-bubble">\${html}</div>\`
-        : \`<div class="cb-bubble">\${html}</div>\`;
-      msgs.appendChild(row);
-      msgs.scrollTop = msgs.scrollHeight;
-      return row;
+    function appendMsg(role,content){
+      var msgs=document.getElementById("cb-msgs");
+      var row=document.createElement("div");
+      row.className="cb-msg "+role;
+      if(role==="bot"){
+        row.innerHTML='<div class="cb-msg-av"><img src="img/chloe.png" alt="Chloe"/></div><div class="cb-bubble">'+content+'</div>';
+      }else{
+        row.innerHTML='<div class="cb-bubble">'+content+'</div>';
+      }
+      msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;
     }
-
-    function appendTyping() {
-      const msgs = document.getElementById('cb-msgs');
-      const id = 'typing-' + Date.now();
-      const row = document.createElement('div');
-      row.className = 'cb-msg bot'; row.id = id;
-      row.innerHTML = \`<div class="cb-msg-av"><img src="img/chloe.png" alt="Chloe"/></div><div class="cb-typing"><div class="cb-dot"></div><div class="cb-dot"></div><div class="cb-dot"></div></div>\`;
-      msgs.appendChild(row);
-      msgs.scrollTop = msgs.scrollHeight;
-      return id;
+    function appendTyping(){
+      var msgs=document.getElementById("cb-msgs");
+      var id="typing-"+Date.now();
+      var row=document.createElement("div");
+      row.className="cb-msg bot";row.id=id;
+      row.innerHTML='<div class="cb-msg-av"><img src="img/chloe.png" alt="Chloe"/></div><div class="cb-typing"><div class="cb-dot"></div><div class="cb-dot"></div><div class="cb-dot"></div></div>';
+      msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;return id;
     }
-
-    function removeTyping(id) {
-      const el = document.getElementById(id);
-      if (el) el.remove();
-    }
-
-    function escHtml(t) {
-      return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    }
+    function removeTyping(id){var el=document.getElementById(id);if(el)el.remove();}
   })();
   </script>
 
 </body>
 </html>
-
-
-
