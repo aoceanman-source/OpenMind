@@ -752,32 +752,32 @@
   <!-- ── AI 智能客服 Widget ── -->
   <style>
     #cb-btn {
-      position: fixed; bottom: 12px; right: 16px;
+      position: fixed; bottom: 12px; right: 12px;
       z-index: 2147483647;
-      width: 80px;
+      width: 96px;
       background: transparent;
       border: none;
       padding: 0; cursor: pointer;
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
       transition: transform .22s;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,.3));
+      filter: drop-shadow(0 4px 14px rgba(0,0,0,.32));
     }
     #cb-btn:hover { transform: translateY(-3px); }
     #cb-btn > img {
-      width: 80px; height: 80px;
-      object-fit: contain; object-position: center top;
+      width: 96px; height: 96px;
+      object-fit: contain; object-position: center center;
       display: block; pointer-events: none;
     }
     #cb-btn > span {
-      font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+      font-size: .75rem; font-weight: 700; letter-spacing: .08em;
       color: #fff; pointer-events: none; white-space: nowrap;
-      text-shadow: 0 1px 6px rgba(0,0,0,.7), 0 0 12px rgba(0,150,255,.6);
       font-family: 'Noto Sans TC', sans-serif;
-      background: linear-gradient(135deg, rgba(26,111,168,.85), rgba(0,80,160,.85));
-      padding: 2px 8px; border-radius: 10px;
+      background: linear-gradient(135deg, #1a6fa8, #0d4f80);
+      padding: 3px 12px; border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,80,160,.4);
     }
     #cb-badge {
-      position: fixed; bottom: 90px; right: 14px; z-index: 2147483647;
+      position: fixed; bottom: 104px; right: 10px; z-index: 2147483647;
       background: #f85149; color: #fff; font-size: .55rem; font-weight: 700;
       width: 20px; height: 20px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -827,7 +827,7 @@
     .cb-send { width:38px; height:38px; border-radius:50%; background:#1a6fa8; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:.9rem; transition:background .2s,transform .15s; flex-shrink:0; }
     .cb-send:hover { background:#155a8a; transform:scale(1.08); }
     .cb-send:disabled { background:#c0c8d4; cursor:not-allowed; transform:none; }
-    @media(max-width:420px){#cb-win{width:calc(100vw - 24px);right:8px;bottom:110px;}#cb-btn{bottom:8px;right:8px;}#cb-badge{bottom:88px;right:8px;}}
+    @media(max-width:420px){#cb-win{width:calc(100vw - 24px);right:8px;bottom:120px;}#cb-btn{bottom:8px;right:8px;width:88px;}#cb-btn>img{width:88px;height:88px;}#cb-badge{bottom:96px;right:6px;}}
   </style>
 
   <button id="cb-btn" onclick="cbToggle()" aria-label="開啟 AI 智能客服">
