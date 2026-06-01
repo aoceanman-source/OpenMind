@@ -940,6 +940,7 @@ OpenMind Studio 是台灣接案工程師工作室，專注三大服務：
       document.querySelector('.cb-send').disabled = false;
       input.focus();
     };
+    function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
     function appendMsg(role,content){
       var msgs=document.getElementById("cb-msgs");
       var row=document.createElement("div");
