@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日本商辦物件管理系統｜OpenMind Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- 頂部 -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand">
+        <span class="brand__logo">OpenMind<span class="brand__accent"> Studio</span></span>
+        <span class="brand__sub">日本商辦物件管理系統</span>
+      </div>
+      <div class="topbar__meta mono" id="fxNote">1 JPY = NT$ 0.21</div>
+    </div>
+  </header>
+
+  <!-- 統計列 -->
+  <section class="stats" id="stats">
+    <div class="stat">
+      <div class="stat__num mono" id="statCount">—</div>
+      <div class="stat__label">在庫物件</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num mono" id="statValueTwd">—</div>
+      <div class="stat__label">總銷售額（台幣）</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num mono" id="statValueJpy">—</div>
+      <div class="stat__label">總銷售額（日圓）</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num mono" id="statYield">—</div>
+      <div class="stat__label">平均表面利回り</div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- 篩選 -->
+    <section class="filters">
+      <input type="text" id="fQ" class="field" placeholder="搜尋物件名稱 / 編號 / 車站…" />
+      <select id="fPref" class="field"><option value="">全部地區</option></select>
+      <select id="fStatus" class="field">
+        <option value="">全部狀態</option>
+        <option value="在庫">在庫</option>
+        <option value="商談中">商談中</option>
+        <option value="成約">成約</option>
+      </select>
+      <select id="fSales" class="field"><option value="">全部業務</option></select>
+      <input type="number" id="fYield" class="field field--sm" placeholder="最低利回り%" step="0.1" />
+      <input type="number" id="fPrice" class="field field--sm" placeholder="價格上限(億円)" step="0.5" />
+      <button class="btn btn--ghost" id="fReset">重設</button>
+    </section>
+
+    <div class="result-bar">
+      <span id="resultCount" class="mono">—</span> 筆物件
+      <span class="result-bar__hint">依表面利回り由高至低排序</span>
+    </div>
+
+    <!-- 物件清單 -->
+    <section class="grid" id="propGrid"></section>
+  </main>
+
+  <!-- 詳細抽屜 -->
+  <div class="drawer-overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer">
+    <div class="drawer__head">
+      <button class="drawer__close" id="drawerClose" aria-label="關閉">×</button>
+      <div id="drawerBody"></div>
+    </div>
+  </aside>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>物件概要書 — {{ p.code }} {{ p.name }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root { --ink:#111; --mid:#888; --line:#D8D3CE; --cream:#F5F0EB; --green:#3a6b4f; }
+    body { font-family:'Noto Sans TC',sans-serif; font-weight:300; color:var(--ink); background:#e9e5e0; line-height:1.7; }
+    .mono { font-family:'DM Mono',monospace; }
+    .sheet { width:210mm; min-height:297mm; margin:18px auto; background:#fff; padding:18mm 16mm; box-shadow:0 8px 40px rgba(0,0,0,.15); }
+
+    .r-head { display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid var(--ink); padding-bottom:10px; }
+    .r-title { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; }
+    .r-title small { display:block; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; color:var(--mid); font-weight:400; }
+    .r-brand { text-align:right; font-size:12px; color:var(--mid); }
+    .r-brand b { font-family:'Playfair Display',serif; color:var(--ink); font-size:15px; }
+
+    .r-name { margin:16px 0 4px; font-size:20px; font-weight:700; }
+    .r-name .code { font-family:'DM Mono',monospace; font-size:13px; color:var(--mid); margin-right:10px; }
+    .r-loc { font-size:13px; color:var(--mid); margin-bottom:18px; }
+
+    .r-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:22px; }
+    .r-metric { background:var(--cream); padding:12px 14px; }
+    .r-metric .v { font-family:'DM Mono',monospace; font-size:18px; }
+    .r-metric .v.accent { color:var(--green); }
+    .r-metric .l { font-size:10px; color:var(--mid); letter-spacing:.05em; }
+
+    .r-section { font-size:12px; letter-spacing:.16em; color:var(--mid); text-transform:uppercase; border-bottom:1px solid var(--line); padding-bottom:6px; margin:0 0 12px; }
+    .r-facts { display:grid; grid-template-columns:1fr 1fr; gap:7px 28px; margin-bottom:22px; font-size:12.5px; }
+    .r-fact { display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding-bottom:4px; }
+    .r-fact span:first-child { color:var(--mid); }
+
+    table { width:100%; border-collapse:collapse; font-size:12px; margin-bottom:18px; }
+    th { background:var(--ink); color:#fff; font-weight:400; padding:7px 9px; text-align:left; font-size:11px; }
+    td { padding:6px 9px; border-bottom:1px solid var(--line); }
+    td.num { text-align:right; font-family:'DM Mono',monospace; }
+    tr.vac td { background:#fbeaea; color:#9a4a44; }
+    tfoot td { font-weight:500; background:var(--cream); border-top:2px solid var(--line); }
+
+    .r-foot { display:flex; justify-content:space-between; font-size:11px; color:var(--mid); border-top:1px solid var(--line); padding-top:10px; margin-top:6px; }
+    .r-disc { font-size:10px; color:var(--mid); margin-top:6px; }
+
+    .toolbar { position:fixed; top:16px; right:16px; display:flex; gap:8px; }
+    .toolbar button { font-family:'Noto Sans TC',sans-serif; font-size:13px; padding:10px 18px; background:var(--ink); color:#fff; border:none; border-radius:2px; cursor:pointer; letter-spacing:.08em; }
+    @media print {
+      body { background:#fff; }
+      .sheet { margin:0; box-shadow:none; width:auto; min-height:auto; padding:0; }
+      .toolbar { display:none; }
+      @page { size:A4; margin:14mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar"><button onclick="window.print()">🖨 列印 / 存成 PDF</button></div>
+
+  {% set fmt_yen = '¥{:,.0f}' %}
+  <div class="sheet">
+    <div class="r-head">
+      <div class="r-title">物件概要書<small>PROPERTY SUMMARY</small></div>
+      <div class="r-brand"><b>OpenMind Studio</b><br>日本一棟商辦投資物件</div>
+    </div>
+
+    <div class="r-name"><span class="code mono">{{ p.code }}</span>{{ p.name }}</div>
+    <div class="r-loc">{{ p.prefecture or '' }}{{ p.city or '' }}　{{ p.address or '' }}　｜　{{ p.nearest_station or '—' }} 徒步 {{ p.walk_minutes or '—' }} 分</div>
+
+    <div class="r-metrics">
+      <div class="r-metric"><div class="v accent mono">{{ m.gross_yield }}%</div><div class="l">表面利回り Gross Yield</div></div>
+      <div class="r-metric"><div class="v mono">{{ m.current_yield }}%</div><div class="l">現況利回り Current</div></div>
+      <div class="r-metric"><div class="v mono">NT${{ '{:,.0f}'.format(m.price_twd) }}</div><div class="l">販售價格 (TWD)</div></div>
+      <div class="r-metric"><div class="v mono">¥{{ '{:,.0f}'.format(m.price_jpy) }}</div><div class="l">販售價格 (JPY)</div></div>
+    </div>
+
+    <div class="r-section">建物概要　Building</div>
+    <div class="r-facts">
+      <div class="r-fact"><span>規模 Floors</span><span>地上 {{ p.floors_above or 0 }} 階 / 地下 {{ p.floors_below or 0 }} 階</span></div>
+      <div class="r-fact"><span>構造 Structure</span><span>{{ p.structure or '—' }}</span></div>
+      <div class="r-fact"><span>築年 Built</span><span>{{ p.built_year or '—' }} 年 {{ p.built_month or '' }} 月</span></div>
+      <div class="r-fact"><span>耐震 Seismic</span><span>{{ p.earthquake_standard or '—' }}</span></div>
+      <div class="r-fact"><span>土地面積 Land</span><span>{{ '{:,.2f}'.format(p.land_area_sqm or 0) }} ㎡（{{ tsubo(p.land_area_sqm) }} 坪）</span></div>
+      <div class="r-fact"><span>延床面積 GFA</span><span>{{ '{:,.2f}'.format(p.gross_floor_area_sqm or 0) }} ㎡（{{ tsubo(p.gross_floor_area_sqm) }} 坪）</span></div>
+      <div class="r-fact"><span>權利型態 Title</span><span>{{ p.ownership_type or '—' }}</span></div>
+      <div class="r-fact"><span>參考匯率 FX</span><span>1 JPY = NT$ {{ m.exchange_rate }}</span></div>
+    </div>
+
+    <div class="r-section">レントロール　Rent Roll（{{ m.floor_count }} 層・滿室想定年收 ¥{{ '{:,.0f}'.format(m.full_annual_income_jpy) }}）</div>
+    <table>
+      <thead><tr><th>樓層/區劃</th><th>面積(坪)</th><th>現況</th><th>租客 / 業種</th><th>月租金</th><th>共益費</th></tr></thead>
+      <tbody>
+        {% for f in p.floors %}
+        <tr class="{{ 'vac' if f.status != '賃貸中' else '' }}">
+          <td>{{ f.floor_label or '' }}{{ ' ' + f.unit if f.unit else '' }}</td>
+          <td class="num">{{ tsubo(f.area_sqm) }}</td>
+          <td>{{ f.status }}</td>
+          <td>{{ f.tenant_name or '—' }}{% if f.tenant_industry %}（{{ f.tenant_industry }}）{% endif %}</td>
+          <td class="num">{{ '¥{:,.0f}'.format(f.monthly_rent_jpy) if f.status == '賃貸中' else '—' }}</td>
+          <td class="num">{{ '¥{:,.0f}'.format(f.monthly_common_fee_jpy) if f.status == '賃貸中' else '—' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>合計 Total</td><td class="num">{{ m.total_area_tsubo }}</td><td>入居 {{ m.occupancy_rate }}%</td>
+          <td></td><td class="num">¥{{ '{:,.0f}'.format(m.full_monthly_income_jpy) }}</td><td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    {% if p.note %}<div class="r-facts" style="grid-template-columns:1fr"><div class="r-fact"><span>備考</span><span style="text-align:right">{{ p.note }}</span></div></div>{% endif %}
+
+    <div class="r-foot">
+      <span>製表日 {{ today }}　｜　負責業務 {{ p.assigned_sales or '—' }}　｜　銷售狀態 {{ p.status }}</span>
+      <span>OpenMind Studio</span>
+    </div>
+    <div class="r-disc">※ 本資料僅供參考。台幣金額依參考匯率換算，實際成交以日圓計價為準；利回り為稅前數字，不含取得費用與稅金。</div>
+  </div>
+</body>
+</html>
