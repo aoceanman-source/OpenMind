@@ -1,61 +1,39 @@
-/* ─── NAVBAR: scroll shadow + burger ─── */
-const navbar   = document.getElementById('navbar');
-const navMenu  = document.getElementById('navMenu');
-const navBurger = document.getElementById('navBurger');
+const header = document.querySelector('[data-header]');
+const menuButton = document.querySelector('[data-menu-button]');
+const menu = document.querySelector('[data-menu]');
 
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
-});
+if (header) {
+  const setHeaderState = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
+  setHeaderState();
+  window.addEventListener('scroll', setHeaderState, { passive: true });
+}
 
-navBurger.addEventListener('click', () => {
-  const isOpen = navMenu.classList.toggle('open');
-  navBurger.classList.toggle('open', isOpen);
-  navBurger.setAttribute('aria-label', isOpen ? '關閉選單' : '開啟選單');
-});
-
-/* close menu when a nav link is clicked */
-navMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('open');
-    navBurger.classList.remove('open');
+if (menuButton && menu) {
+  menuButton.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('is-open');
+    menuButton.classList.toggle('is-open', isOpen);
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? '關閉選單' : '開啟選單');
   });
-});
 
-/* ─── SCROLL REVEAL ─── */
-const revealEls = document.querySelectorAll(
-  '.pain__card, .service-card, .why-card, .about__content, .about__avatar-wrap, .contact__copy, .hero__content, .portfolio-card'
-);
+  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    menu.classList.remove('is-open');
+    menuButton.classList.remove('is-open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', '開啟選單');
+  }));
+}
 
-revealEls.forEach((el, i) => {
-  el.classList.add('reveal');
-  const delay = (i % 4);
-  if (delay > 0) el.classList.add(`reveal-delay-${delay}`);
-});
-
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-revealEls.forEach(el => revealObserver.observe(el));
-
-/* ─── SMOOTH ACTIVE NAV HIGHLIGHT ─── */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.navbar__nav a:not(.btn)');
-
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-      });
-    }
-  });
-}, { rootMargin: '-40% 0px -55% 0px' });
-
-sections.forEach(s => sectionObserver.observe(s));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+} else {
+  document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+}
