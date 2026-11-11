@@ -5,7 +5,6 @@
       "parameters": {
         "httpMethod": "POST",
         "path": "openmind-chat",
-        "authentication": "headerAuth",
         "responseMode": "responseNode",
         "options": {}
       },
@@ -14,13 +13,7 @@
       "position": [-1152, 256],
       "id": "f145a45b-1b14-47d0-8761-9f033e64540f",
       "name": "Chat Webhook",
-      "webhookId": "openmind-chat-webhook",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "guV9cnpKBQ96fCzc",
-          "name": "X-API-Key"
-        }
-      }
+      "webhookId": "openmind-chat-webhook"
     },
     {
       "parameters": {
